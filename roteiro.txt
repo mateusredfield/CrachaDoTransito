@@ -1,0 +1,36 @@
+======================== Cracha do Transito =====================================================
+
+ - Sexta - Apenas swagger, revisar td, e esperar segunda
+
+ - Estudar C#, talvez clean
+
+ - Provavel ordem, esqueleto com template, login keykloak
+
+ - Cronograma - Talvez usar o monday ou algo do tipo
+
+ - Talvez estudar SQL server
+
+ - Reduncia pois é um projeto rapido
+
+ - Keyckloak mas parece q tem no template, login interno por hora apenas
+
+ - Clean Architerure usando template, 
+
+ - Log de acoes, verificar se a modelagem do bd ja tem log de acoes
+
+ - Infra deve entrar em contato com algumas empresas
+
+ - Pedir Permissões de projeto - Ambiente git para esse projeto
+
+ - Estudar git ignore para projeto Visual Studio, 
+   mas talvez o template ja tenha
+
+ - Pegar exemplo do felipe para entender algumas modelagens
+
+------------- Duvidas
+
+ - (Talvez perguntar) Se o motorista quiser saber o status
+
+ - Limpar Listagem de cpfs na ultima task q fiz no agendamento
+
+============================================================================================
