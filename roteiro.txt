@@ -27,6 +27,8 @@
 
  - Pegar exemplo do felipe para entender algumas modelagens
 
+- Empresas irao usar a API, e ficar no modelo dela para enviar os dados
+
 ------------- Duvidas
 
  - (Talvez perguntar) Se o motorista quiser saber o status
