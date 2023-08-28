@@ -1,5 +1,7 @@
 ======================== Cracha do Transito =====================================================
 
+ - https://github.com/mateusredfield/CrachaDoTransito.git Keyckloak fica na infra
+
  - Sexta - Apenas swagger, revisar td, e esperar segunda
 
  - Estudar C#, talvez clean
