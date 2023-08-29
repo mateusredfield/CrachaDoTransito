@@ -1,8 +1,22 @@
 ======================== Cracha do Transito =====================================================
 
- - https://github.com/mateusredfield/CrachaDoTransito.git Keyckloak fica na infra
+ - Pedido de criacao do bd fica com a tata
+
+  - Alinhar com Gaddinni (ou ver se na ausencia dele ou bruno pode ver) se o clean pelo menos esta correto 
+
+ - Versionar
+
+ - Tentar entender melhor o q foi feito
+
+ - Reler anotacoes
+
+ - Projeto de API, swagger
+
+ - Keykloak
 
  - Sexta - Apenas swagger, revisar td, e esperar segunda
+
+ - DbExpress nao tem mais, agora é dblocal, nao tem limite de tamanho mas nao tem backup
 
  - Estudar C#, talvez clean
 
@@ -38,3 +52,66 @@
  - Limpar Listagem de cpfs na ultima task q fiz no agendamento
 
 ============================================================================================
+
+
+Anotacoes
+
+ - Precisa versionar o projeto exemplo pois da pra seguir dele
+
+ - Ver onde ficam as DTOs
+
+ - Lmebrar que parece q a aplicacao fornece a interface do q ela precisa pra depois a apresentacao
+ implementar essa camada
+
+ - https://github.com/mateusredfield/CrachaDoTransito.git Keyckloak fica na infra
+
+
+============================================================================================
+
+Perguntar
+
+- Tata
+
+- Alinhar nome do projeto
+
+- Vai usar qual versao do .net, e dependencias afins como os pacotes a serem baixados do nuget?
+
+- A aplicacao mvc conhece infra
+
+============================================================================================
+
+Duvidas pra reuniao
+
+ - Nome do app e nome do bd, Sistema Conduap
+
+ - Cronograma
+
+ - Contato com setransp cedo 
+
+ - Contato com as empresas cedo
+
+ - Dados que precisa, de tds, atores envolvidos
+
+ - Modelagem do bd
+
+- garatia da integridade dos dados ou preparar para excecoes como dados repetidos e nulos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===========================================================================================
+Backlog
+
+ok - rever - Hello World em Clean conectando com bd
+ok - Tabela com chave, auto increment correto
+
