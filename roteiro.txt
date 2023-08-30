@@ -2,6 +2,8 @@
 
  - Pedido de criacao do bd fica com a tata
 
+ - Vizualizador de tasks
+
   - Alinhar com Gaddinni (ou ver se na ausencia dele ou bruno pode ver) se o clean pelo menos esta correto 
 
  - Versionar
@@ -47,7 +49,7 @@
 
 ------------- Duvidas
 
- - (Talvez perguntar) Se o motorista quiser saber o status
+ - (Talvez) ler sobre addscoped 
 
  - Limpar Listagem de cpfs na ultima task q fiz no agendamento
 
@@ -65,18 +67,37 @@ Anotacoes
 
  - https://github.com/mateusredfield/CrachaDoTransito.git Keyckloak fica na infra
 
+Talvez reler pois tem 3 tipos de injecao, construtor, propriedade e metodo
+ -https://www.tutorialsteacher.com/ioc/dependency-injection#google_vignette
+
 
 ============================================================================================
 
 Perguntar
 
+-Gaddini
+
+  - Checar o projeto como um todo
+
+  - Comentar sobre focar em um design pattern ou outro pois todos nao vai dar
+
+  - Falta algo do tipo DTO
+
+  - Onde ficam as opcoes de builder no context pois esta vazio
+
+  - A aplicacao mvc conhece infra
+
+  - Se o addscoped q liga a interface a classe
+
+  - Vai usar qual versao do .net, e dependencias afins como os pacotes a serem baixados do nuget?
+
+- (Talvez nao) Pq o dominio tem uma interface se ele nao deve conhecer ninguem, ele nao deveria saber que metodos
+ele precisaria pois ele deveria conter apenas informacao, e nao metodos pq parecem implicar em regras
+de negocio da aplicacao, sendo assim o dominio deveria conhecer apenas dominio
+
 - Tata
 
 - Alinhar nome do projeto
-
-- Vai usar qual versao do .net, e dependencias afins como os pacotes a serem baixados do nuget?
-
-- A aplicacao mvc conhece infra
 
 ============================================================================================
 
