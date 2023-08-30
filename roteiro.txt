@@ -1,18 +1,24 @@
-======================== Cracha do Transito =====================================================
+======================== Conduatpp =====================================================
+
+ - O que fazer com o mer qndo tem mudanca de requisito, criar mais tabelas ou nao
+
+ - Ver como fazer modelagem com o sql server
 
  - Pedido de criacao do bd fica com a tata
 
+ - Versionar
+
+ - Ler assinador avançado pra ver Questoes do builder e modelo de dados
+
+ - Projeto de API, swagger 
+
  - Vizualizador de tasks
 
-  - Alinhar com Gaddinni (ou ver se na ausencia dele ou bruno pode ver) se o clean pelo menos esta correto 
-
- - Versionar
+ - Alinhar com Gaddinni (ou ver se na ausencia dele ou bruno pode ver) se o clean pelo menos esta correto 
 
  - Tentar entender melhor o q foi feito
 
  - Reler anotacoes
-
- - Projeto de API, swagger
 
  - Keykloak
 
@@ -79,6 +85,14 @@ Perguntar
 
   - Checar o projeto como um todo
 
+  - Seria o template mais pra se basear?
+
+  - O Assinador avançado nao tem projeto de api no UI
+
+  - Pq tem model na interface do domain
+
+  - Handler e CQRS nao estou usando mas tb nao lmebro de ter visto no template
+
   - Comentar sobre focar em um design pattern ou outro pois todos nao vai dar
 
   - Falta algo do tipo DTO
@@ -97,7 +111,26 @@ de negocio da aplicacao, sendo assim o dominio deveria conhecer apenas dominio
 
 - Tata
 
-- Alinhar nome do projeto
+- Quantos conduapp a pessoa vai ter
+
+- A empresa so vai poder usar a url depois de cadastrada, e talvez deva ser possivel revogar todos
+os dados fornecidos da mesma, logo o bulk precisa poder ser revertido
+
+- Os documentos CNH etc ficam a cargo da setranp ou o app infelizmente precisara cuidar disso
+
+- vale por 1 ano, logo precisa desvincular automatico dado o prazo da ultima atualizacao
+
+- Vai ter usuario motorista ou algo do tipo pois é dito q e documento pessoal e intrasferivel
+mas porte durante a atividade seria porte de algo fisico, do app ou seria o qr code e placa
+
+- Vai precisar de roles simultaneas?
+
+- Tres penalidades consecutivas, punicao é o app ou o admin q coloca isso
+
+- art 39 e 47
+
+- Caso do motorista alegar ser registrado mas placa nem qr forem encontrados 
+(possivel incosistencia no dado enviado antes)
 
 ============================================================================================
 
@@ -125,8 +158,22 @@ Duvidas pra reuniao
 
 
 
+===========================================================================================
+Regras de Negocio
 
+ - Tenso
 
+ - Suspensao Temporaria
+
+ - Nome do motorista
+
+ - numero da CNH
+ 
+ - cpf
+
+ - dados do itinerario
+
+ - Placa do veiculo, modelo, cor
 
 
 
@@ -135,4 +182,6 @@ Backlog
 
 ok - rever - Hello World em Clean conectando com bd
 ok - Tabela com chave, auto increment correto
+ok - Conduap -  Alinhar nome do projeto
+
 
