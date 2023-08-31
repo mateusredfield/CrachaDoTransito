@@ -1,4 +1,18 @@
 ======================== Conduatpp =====================================================
+ 
+ - Tabela, veiculo, condutor, prc, ag
+
+ - Ver diferenca entre IEnumerable e IList, ver sobre nullable pq do bd vem mto null
+
+ - Tratar os nulos
+
+ - Fazer Domain, e Infra
+
+ - Falta documentos na tabela condutor
+
+ - Checar td
+
+ - Lembrar onde colocar o data notation
 
  - O que fazer com o mer qndo tem mudanca de requisito, criar mais tabelas ou nao
 
@@ -132,8 +146,6 @@ mas porte durante a atividade seria porte de algo fisico, do app ou seria o qr c
 - Caso do motorista alegar ser registrado mas placa nem qr forem encontrados 
 (possivel incosistencia no dado enviado antes)
 
-============================================================================================
-
 Duvidas pra reuniao
 
  - Nome do app e nome do bd, Sistema Conduap
@@ -154,25 +166,14 @@ Duvidas pra reuniao
 
 
 
-
-
-
-
 ===========================================================================================
 Regras de Negocio
 
- - Tenso
-
  - Suspensao Temporaria
-
  - Nome do motorista
-
  - numero da CNH
- 
  - cpf
-
  - dados do itinerario
-
  - Placa do veiculo, modelo, cor
 
 
@@ -183,5 +184,13 @@ Backlog
 ok - rever - Hello World em Clean conectando com bd
 ok - Tabela com chave, auto increment correto
 ok - Conduap -  Alinhar nome do projeto
+ok - Versionar - adicionei remoto errado sem querer mas corrigi, 
+  problema foi q gastou algumas horas
 
 
+===========================================================================================
+worklog
+
+31-08-2023
+
+Versionamento, Criacao das Tabelas, Fazendo a folha
