@@ -1,14 +1,44 @@
 ======================== Conduatpp =====================================================
  
+ - Trativa por command
+
+ - Projeto API
+
+ - KeyKloak
+
+ - Requisitos
+
+ - Pedir acesso remoto
+
+ - Fazer a primeira funcionalidade, coloca placa, recebe conduapp e pegar os demais requisito com a gestora apenas
+
+ - Conversar com a gestora sobre se deve-se falar ou nao com o cliente, pois o escopo da memoria é um e a lei nao 
+
  - Tabela, veiculo, condutor, prc, ag
+
+ - Deveria checar se nao tem um veiculo com a placa ja cadastrada anes de colocar
+
+ - Deveria checar a consistencia da placa talvez, talvez
+
+ - Metodo pra busca parcial de placas
+
+ - Como vai ser a pagina de alteracao
 
  - Ver diferenca entre IEnumerable e IList, ver sobre nullable pq do bd vem mto null
 
+ - O certo era usar com array a chamada da controller qndo recebe o servico 
+
+ - How use viewmodel com clean
+
  - Tratar os nulos
+
+ - Fazer o json do objeto
 
  - Fazer Domain, e Infra
 
  - Falta documentos na tabela condutor
+
+ - Validacao de dados por comand (CQRS) e por builder
 
  - Checar td
 
@@ -97,6 +127,8 @@ Perguntar
 
 -Gaddini
 
+  - Usar viewmodel ou nao, olhar como esta o projeto
+
   - Checar o projeto como um todo
 
   - Seria o template mais pra se basear?
@@ -124,6 +156,8 @@ ele precisaria pois ele deveria conter apenas informacao, e nao metodos pq parec
 de negocio da aplicacao, sendo assim o dominio deveria conhecer apenas dominio
 
 - Tata
+
+- Precisa checar se pode criar veiculo novamente com a mesma placa (nao deveria)
 
 - Quantos conduapp a pessoa vai ter
 
@@ -175,6 +209,8 @@ Regras de Negocio
  - cpf
  - dados do itinerario
  - Placa do veiculo, modelo, cor
+ - Funcoes que retornam a Classe serializada como Json estao na 
+   controller
 
 
 
@@ -194,3 +230,7 @@ worklog
 31-08-2023
 
 Versionamento, Criacao das Tabelas, Fazendo a folha
+
+01-09-23
+
+Dentro do Clean, get, getAll, getJSon
