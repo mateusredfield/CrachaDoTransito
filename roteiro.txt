@@ -1,6 +1,6 @@
 ======================== Conduatpp =====================================================
  
- - Trativa por command
+ - Validacao nos dois sentidos (io - bd vice versa)
 
  - Projeto API
 
@@ -15,6 +15,10 @@
  - Conversar com a gestora sobre se deve-se falar ou nao com o cliente, pois o escopo da memoria é um e a lei nao 
 
  - Tabela, veiculo, condutor, prc, ag
+
+ - (adiado) Trativa por command
+
+ - Ressalva consideravel - A validacao esta sendo feita artesanalmente para 
 
  - Deveria checar se nao tem um veiculo com a placa ja cadastrada anes de colocar
 
@@ -105,6 +109,13 @@
 
 ============================================================================================
 
+ Preciso Ler
+ 
+  - https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-cs
+
+
+============================================================================================
+
 
 Anotacoes
 
@@ -112,6 +123,8 @@ Anotacoes
 
  - Ver onde ficam as DTOs
 
+ - automatizado
+ 
  - Lmebrar que parece q a aplicacao fornece a interface do q ela precisa pra depois a apresentacao
  implementar essa camada
 
@@ -196,7 +209,7 @@ Duvidas pra reuniao
 
 - garatia da integridade dos dados ou preparar para excecoes como dados repetidos e nulos
 
-
+- Tipo de dado do ano do carro, gol 2008 2 semestre
 
 
 
@@ -211,7 +224,7 @@ Regras de Negocio
  - Placa do veiculo, modelo, cor
  - Funcoes que retornam a Classe serializada como Json estao na 
    controller
-
+ - Codigo -2 significa dados incorretos do form, seja por nulo ou improprios
 
 
 ===========================================================================================
