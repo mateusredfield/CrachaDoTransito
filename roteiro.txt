@@ -1,6 +1,16 @@
 ======================== Conduatpp =====================================================
- 
- - Validacao nos dois sentidos (io - bd vice versa)
+
+ - Implementar command com handler proprio e implicit operator, 
+ modelstate na controller
+
+ - Ver os 3 espaços de validacao
+
+ - Validacao IO (app - regras de negocio) com commands e handlers pra 
+ fazer IO - Infra
+
+ - Validacao command (command - datasets)
+
+ - Validacao Infra (Buidler) - Infra - IO
 
  - Projeto API
 
@@ -124,7 +134,7 @@ Anotacoes
  - Ver onde ficam as DTOs
 
  - automatizado
- 
+
  - Lmebrar que parece q a aplicacao fornece a interface do q ela precisa pra depois a apresentacao
  implementar essa camada
 
@@ -194,6 +204,8 @@ mas porte durante a atividade seria porte de algo fisico, do app ou seria o qr c
 (possivel incosistencia no dado enviado antes)
 
 Duvidas pra reuniao
+
+ - Todo command precisa ter a ida e volta
 
  - Nome do app e nome do bd, Sistema Conduap
 
