@@ -1,14 +1,11 @@
 ======================== Conduatpp =====================================================
 
- - Implementar command com handler proprio e implicit operator, 
- modelstate na controller
-
- - Ver os 3 espaços de validacao
-
- - Validacao IO (app - regras de negocio) com commands e handlers pra 
+ ok - Validacao IO (app - regras de negocio) com commands e handlers pra 
  fazer IO - Infra
 
- - Validacao command (command - datasets)
+ ok - Validacao command (command - datasets)
+
+ ok - Ver os 3 espaços de validacao
 
  - Validacao Infra (Buidler) - Infra - IO
 
@@ -18,15 +15,13 @@
 
  - Requisitos
 
- - Pedir acesso remoto
-
  - Fazer a primeira funcionalidade, coloca placa, recebe conduapp e pegar os demais requisito com a gestora apenas
 
  - Conversar com a gestora sobre se deve-se falar ou nao com o cliente, pois o escopo da memoria é um e a lei nao 
 
  - Tabela, veiculo, condutor, prc, ag
 
- - (adiado) Trativa por command
+ - Tratativa de erros mais consisa
 
  - Ressalva consideravel - A validacao esta sendo feita artesanalmente para 
 
@@ -247,6 +242,8 @@ ok - Tabela com chave, auto increment correto
 ok - Conduap -  Alinhar nome do projeto
 ok - Versionar - adicionei remoto errado sem querer mas corrigi, 
   problema foi q gastou algumas horas
+ok - Implementar command com handler proprio e implicit operator, 
+ modelstate na controller para uma entendi
 
 
 ===========================================================================================
@@ -259,3 +256,8 @@ Versionamento, Criacao das Tabelas, Fazendo a folha
 01-09-23
 
 Dentro do Clean, get, getAll, getJSon
+
+04 e 05 - 09-2023
+
+Tempo integralmente gasto refatorando um exemplo de clean api
+que nao atende os padroes pedidos
