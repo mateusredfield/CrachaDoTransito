@@ -1,18 +1,18 @@
 ======================== Conduatpp =====================================================
 
- - Validacao Infra (Buidler) - Infra - IO
-
- - rever o tipo do dado ano
-
  - Projeto API
+
+ - colocar inteiro
 
  - KeyKloak
 
  - Requisitos
 
+  - Tabela, veiculo, condutor, prc, ag
+
  - Fazer a primeira funcionalidade, coloca placa, recebe conduapp e pegar os demais requisito com a gestora apenas
 
- - Tabela, veiculo, condutor, prc, ag
+ - bater os tipos nulls e not nulls com o bd
 
  - Tratativa de erros mais consisa
 
@@ -131,12 +131,13 @@ mas porte durante a atividade seria porte de algo físico, do app ou seria o qr 
 - CPF não está sendo usado com chave primaria pois precisa-se saber se ele pode estar errado e
  por algum motivo precise ser atualizado, pois a validade do mesmo apenas a receita federal pode atestar
 
-
 Duvidas pra reuniao
 
 ===========================================================================================
 Regras de Negocio
 
+ - Problema - Nao tera acesso direto no BD pra mudar dados, seguindo politica de bd relacional
+   mas eu mesmo nao gosto da ideia
  - Suspensao Temporaria
  - Nome do motorista
  - numero da CNH
@@ -221,6 +222,7 @@ ok - Nome do app e nome do bd, Sistema Conduap
 ok - duvida - Caso do motorista alegar ser registrado mas placa nem qr forem encontrados 
 (possivel incosistencia no dado enviado antes)
 
+ok - Validacao Infra (Buidler) - Infra - IO
 
 ===========================================================================================
 worklog
