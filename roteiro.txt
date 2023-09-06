@@ -1,13 +1,8 @@
 ======================== Conduatpp =====================================================
 
- ok - Validacao IO (app - regras de negocio) com commands e handlers pra 
- fazer IO - Infra
-
- ok - Validacao command (command - datasets)
-
- ok - Ver os 3 espaços de validacao
-
  - Validacao Infra (Buidler) - Infra - IO
+
+ - rever o tipo do dado ano
 
  - Projeto API
 
@@ -17,13 +12,13 @@
 
  - Fazer a primeira funcionalidade, coloca placa, recebe conduapp e pegar os demais requisito com a gestora apenas
 
- - Conversar com a gestora sobre se deve-se falar ou nao com o cliente, pois o escopo da memoria é um e a lei nao 
+ ok - Conversar com a gestora sobre se deve-se falar ou nao com o cliente, pois o escopo da memoria é um e a lei nao 
 
  - Tabela, veiculo, condutor, prc, ag
 
  - Tratativa de erros mais consisa
 
- - Ressalva consideravel - A validacao esta sendo feita artesanalmente para 
+ ok - (geladeira) -  Ressalva consideravel - A validacao esta sendo feita artesanalmente para 
 
  - Deveria checar se nao tem um veiculo com a placa ja cadastrada anes de colocar
 
@@ -37,78 +32,44 @@
 
  - O certo era usar com array a chamada da controller qndo recebe o servico 
 
- - How use viewmodel com clean
+ ok - coelga disse q é ok usar viewmodel com clean
 
- - Tratar os nulos
+ ok - Fazer o json do objeto
 
- - Fazer o json do objeto
-
- - Fazer Domain, e Infra
-
- - Falta documentos na tabela condutor
-
- - Validacao de dados por comand (CQRS) e por builder
+ ok - Falta documentos na tabela condutor
 
  - Checar td
 
- - Lembrar onde colocar o data notation
+ ok -  Lembrar onde colocar o data notation
 
  - O que fazer com o mer qndo tem mudanca de requisito, criar mais tabelas ou nao
 
- - Ver como fazer modelagem com o sql server
+ ok - Pedido de criacao do bd fica com a tata
 
- - Pedido de criacao do bd fica com a tata
+ ok - Versionar
 
- - Versionar
-
- - Ler assinador avançado pra ver Questoes do builder e modelo de dados
-
- - Projeto de API, swagger 
+ ok - Ler assinador avançado pra ver Questoes do builder e modelo de dados
 
  - Vizualizador de tasks
 
- - Alinhar com Gaddinni (ou ver se na ausencia dele ou bruno pode ver) se o clean pelo menos esta correto 
-
- - Tentar entender melhor o q foi feito
-
- - Reler anotacoes
-
- - Keykloak
-
- - Sexta - Apenas swagger, revisar td, e esperar segunda
-
- - DbExpress nao tem mais, agora é dblocal, nao tem limite de tamanho mas nao tem backup
-
- - Estudar C#, talvez clean
-
- - Provavel ordem, esqueleto com template, login keykloak
+ - anotacao - DbExpress nao tem mais, agora é dblocal, nao tem limite de tamanho mas nao tem backup
 
  - Cronograma - Talvez usar o monday ou algo do tipo
 
- - Talvez estudar SQL server
-
- - Reduncia pois é um projeto rapido
+ - anotacao - Reduncia pois é um projeto rapido
 
  - Keyckloak mas parece q tem no template, login interno por hora apenas
 
- - Clean Architerure usando template, 
+ - ok - Clean Architerure usando template, 
 
- - Log de acoes, verificar se a modelagem do bd ja tem log de acoes
-
- - Infra deve entrar em contato com algumas empresas
-
- - Pedir Permissões de projeto - Ambiente git para esse projeto
+ - ok - Pedir Permissões de projeto - Ambiente git para esse projeto
 
  - Estudar git ignore para projeto Visual Studio, 
    mas talvez o template ja tenha
 
  - Pegar exemplo do felipe para entender algumas modelagens
 
-- Empresas irao usar a API, e ficar no modelo dela para enviar os dados
-
-------------- Duvidas
-
- - (Talvez) ler sobre addscoped 
+ - (anotacao) ler sobre addscoped 
 
  - Limpar Listagem de cpfs na ultima task q fiz no agendamento
 
@@ -145,79 +106,85 @@ Perguntar
 
 -Gaddini
 
-  - Usar viewmodel ou nao, olhar como esta o projeto
+  - ok - Usar viewmodel ou nao, olhar como esta o projeto
 
-  - Checar o projeto como um todo
+  - ok - Checar o projeto como um todo
 
-  - Seria o template mais pra se basear?
+  - ok - Seria o template mais pra se basear?
 
-  - O Assinador avançado nao tem projeto de api no UI
+  - ok - O Assinador avançado nao tem projeto de api no UI
 
-  - Pq tem model na interface do domain
+  - ok - Pq tem model na interface do domain
 
-  - Handler e CQRS nao estou usando mas tb nao lmebro de ter visto no template
+  - ok - Handler e CQRS nao estou usando mas tb nao lmebro de ter visto no template
 
-  - Comentar sobre focar em um design pattern ou outro pois todos nao vai dar
+  - ok - Comentar sobre focar em um design pattern ou outro pois todos nao vai dar
 
-  - Falta algo do tipo DTO
+  - ok - Falta algo do tipo DTO
 
   - Onde ficam as opcoes de builder no context pois esta vazio
 
-  - A aplicacao mvc conhece infra
+  - ok - A aplicacao mvc conhece infra
 
   - Se o addscoped q liga a interface a classe
 
-  - Vai usar qual versao do .net, e dependencias afins como os pacotes a serem baixados do nuget?
+  - (nao questionar) Vai usar qual versao do .net, e dependencias afins como os pacotes a serem baixados do nuget?
 
-- (Talvez nao) Pq o dominio tem uma interface se ele nao deve conhecer ninguem, ele nao deveria saber que metodos
+- ok - Pq o dominio tem uma interface se ele nao deve conhecer ninguem, ele nao deveria saber que metodos
 ele precisaria pois ele deveria conter apenas informacao, e nao metodos pq parecem implicar em regras
 de negocio da aplicacao, sendo assim o dominio deveria conhecer apenas dominio
 
 - Tata
 
-- Precisa checar se pode criar veiculo novamente com a mesma placa (nao deveria)
+- Precisa checar se pode criar veiculo novamente com a mesma placa (a priori acho q nao deveria)
 
 - Quantos conduapp a pessoa vai ter
 
-- A empresa so vai poder usar a url depois de cadastrada, e talvez deva ser possivel revogar todos
-os dados fornecidos da mesma, logo o bulk precisa poder ser revertido
+- Se a empresa parar de atuar na cidade, a empresa so poderia usar a url depois de cadastrada, e talvez deva 
+ser possivel revogar todos, os dados fornecidos da mesma, logo o bulk precisa poder ser revertido, ou o
+status da empresa precisa ser inativado
 
-- Os documentos CNH etc ficam a cargo da setranp ou o app infelizmente precisara cuidar disso
+- preciso saber se temos exoneracao de responsabilidade qnto a consistencia de dados como telefone do motorista
 
-- vale por 1 ano, logo precisa desvincular automatico dado o prazo da ultima atualizacao
+- Os documentos CNH etc ficam a cargo da setransp ou o app infelizmente precisara cuidar disso
+
+- vale por 1 ano pela lei o vinculo empresa cidade, logo precisari desvincular automatico ou a setransp faria isso
+alguma forma dado o prazo da ultima atualizacao, a duvida consiste em quais acoes escondidas na lei a setransp precisa
+cumprir, no caso um status empresa talvez ajudasse mas ainda precisaria disso na area admin
+
+- seriam 2 roles inicias talvez pois uma seria o admin q pode tudo dentro do app e outra seria o agente de CrachaDoTransito
+q consultaria placas e faria mais algumas acoes, entao deve-se comecar pela role admin e depois podar as acoes para agente
 
 - Vai ter usuario motorista ou algo do tipo pois é dito q e documento pessoal e intrasferivel
 mas porte durante a atividade seria porte de algo fisico, do app ou seria o qr code e placa
 
-- Vai precisar de roles simultaneas?
-
-- Tres penalidades consecutivas, punicao é o app ou o admin q coloca isso
+- Tres penalidades consecutivas, punicao é o app ou o admin q coloca isso ou app
 
 - art 39 e 47
 
-- Caso do motorista alegar ser registrado mas placa nem qr forem encontrados 
+- ok - Caso do motorista alegar ser registrado mas placa nem qr forem encontrados 
 (possivel incosistencia no dado enviado antes)
 
 Duvidas pra reuniao
 
- - Todo command precisa ter a ida e volta
+ - ok - Todo command precisa ter a ida e volta
 
- - Nome do app e nome do bd, Sistema Conduap
+ - ok - Nome do app e nome do bd, Sistema Conduap
 
  - Cronograma
 
- - Contato com setransp cedo 
+ - Log de acoes, verificar se a modelagem do bd ja tem log de acoes
 
- - Contato com as empresas cedo
+ - Infra deve entrar em contato com algumas empresas, mas acho q precisamos ter a api primeiro
 
- - Dados que precisa, de tds, atores envolvidos
+ - reuniao com a setransp pra definir os dados que eles precisam pra definir os do app pra fazer a api logo
 
- - Modelagem do bd
+ - qndo a api precisa estar pronta pra mandar pras empresas pra elas terem tempo pra mandar os dados
 
-- garatia da integridade dos dados ou preparar para excecoes como dados repetidos e nulos
+ - dados do itenerario dos motorista seriam relevantes ou nao
 
-- Tipo de dado do ano do carro, gol 2008 2 semestre
-
+ - cpf nao esta sendo usado com chave primaria pois precisa-se saber se ele pode estar errado e
+ por algum motivo precise ser atualizado, pois a validade do mesmo apenas a receita federal pode atestar
 
 
 ===========================================================================================
@@ -226,12 +193,12 @@ Regras de Negocio
  - Suspensao Temporaria
  - Nome do motorista
  - numero da CNH
- - cpf
+ - ok - cpf
  - dados do itinerario
- - Placa do veiculo, modelo, cor
- - Funcoes que retornam a Classe serializada como Json estao na 
+ - ok - Placa do veiculo, modelo, cor
+ - ok - Funcoes que retornam a Classe serializada como Json estao na 
    controller
- - Codigo -2 significa dados incorretos do form, seja por nulo ou improprios
+ - ok - Codigo -2 significa dados incorretos do form, seja por nulo ou improprios
 
 
 ===========================================================================================
@@ -244,6 +211,10 @@ ok - Versionar - adicionei remoto errado sem querer mas corrigi,
   problema foi q gastou algumas horas
 ok - Implementar command com handler proprio e implicit operator, 
  modelstate na controller para uma entendi
+ ok - Validacao IO (app - regras de negocio) com commands e handlers pra 
+ fazer IO - Infra
+ ok - Validacao command (command - datasets)
+ ok - Ver os 3 espaços de validacao
 
 
 ===========================================================================================
