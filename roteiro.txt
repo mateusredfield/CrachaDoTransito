@@ -12,13 +12,9 @@
 
  - Fazer a primeira funcionalidade, coloca placa, recebe conduapp e pegar os demais requisito com a gestora apenas
 
- ok - Conversar com a gestora sobre se deve-se falar ou nao com o cliente, pois o escopo da memoria é um e a lei nao 
-
  - Tabela, veiculo, condutor, prc, ag
 
  - Tratativa de erros mais consisa
-
- ok - (geladeira) -  Ressalva consideravel - A validacao esta sendo feita artesanalmente para 
 
  - Deveria checar se nao tem um veiculo com a placa ja cadastrada anes de colocar
 
@@ -32,23 +28,9 @@
 
  - O certo era usar com array a chamada da controller qndo recebe o servico 
 
- ok - coelga disse q é ok usar viewmodel com clean
-
- ok - Fazer o json do objeto
-
- ok - Falta documentos na tabela condutor
-
  - Checar td
 
- ok -  Lembrar onde colocar o data notation
-
  - O que fazer com o mer qndo tem mudanca de requisito, criar mais tabelas ou nao
-
- ok - Pedido de criacao do bd fica com a tata
-
- ok - Versionar
-
- ok - Ler assinador avançado pra ver Questoes do builder e modelo de dados
 
  - Vizualizador de tasks
 
@@ -60,10 +42,6 @@
 
  - Keyckloak mas parece q tem no template, login interno por hora apenas
 
- - ok - Clean Architerure usando template, 
-
- - ok - Pedir Permissões de projeto - Ambiente git para esse projeto
-
  - Estudar git ignore para projeto Visual Studio, 
    mas talvez o template ja tenha
 
@@ -72,6 +50,8 @@
  - (anotacao) ler sobre addscoped 
 
  - Limpar Listagem de cpfs na ultima task q fiz no agendamento
+
+ - art 39 e 47 - reler
 
 ============================================================================================
 
@@ -106,86 +86,53 @@ Perguntar
 
 -Gaddini
 
-  - ok - Usar viewmodel ou nao, olhar como esta o projeto
-
-  - ok - Checar o projeto como um todo
-
-  - ok - Seria o template mais pra se basear?
-
-  - ok - O Assinador avançado nao tem projeto de api no UI
-
-  - ok - Pq tem model na interface do domain
-
-  - ok - Handler e CQRS nao estou usando mas tb nao lmebro de ter visto no template
-
-  - ok - Comentar sobre focar em um design pattern ou outro pois todos nao vai dar
-
-  - ok - Falta algo do tipo DTO
-
   - Onde ficam as opcoes de builder no context pois esta vazio
-
-  - ok - A aplicacao mvc conhece infra
 
   - Se o addscoped q liga a interface a classe
 
   - (nao questionar) Vai usar qual versao do .net, e dependencias afins como os pacotes a serem baixados do nuget?
 
-- ok - Pq o dominio tem uma interface se ele nao deve conhecer ninguem, ele nao deveria saber que metodos
-ele precisaria pois ele deveria conter apenas informacao, e nao metodos pq parecem implicar em regras
-de negocio da aplicacao, sendo assim o dominio deveria conhecer apenas dominio
-
 - Tata
 
-- Precisa checar se pode criar veiculo novamente com a mesma placa (a priori acho q nao deveria)
+ Duvidas
+
+- Precisa checar se pode criar veículo novamente com a mesma placa (a priori acho que não deveria)
 
 - Quantos conduapp a pessoa vai ter
 
-- Se a empresa parar de atuar na cidade, a empresa so poderia usar a url depois de cadastrada, e talvez deva 
-ser possivel revogar todos, os dados fornecidos da mesma, logo o bulk precisa poder ser revertido, ou o
-status da empresa precisa ser inativado
+- Se a empresa para de atuar na cidade precisaria de um status de ativo/inativo
 
-- preciso saber se temos exoneracao de responsabilidade qnto a consistencia de dados como telefone do motorista
+- Preciso saber se temos exoneração de responsabilidade quanto a consistência de dados, como telefone do motorista
+- Os documentos CNH etc ficam a cargo da setransp, ou o app infelizmente precisara cuidar disso
 
-- Os documentos CNH etc ficam a cargo da setransp ou o app infelizmente precisara cuidar disso
+- dado que a lei afirma que o vínculo da empresa precisa ser renovado após 1 ano, deveria haver uma opção de
+Renovação desde já no app ou poderiamos postergar isso
 
-- vale por 1 ano pela lei o vinculo empresa cidade, logo precisari desvincular automatico ou a setransp faria isso
-alguma forma dado o prazo da ultima atualizacao, a duvida consiste em quais acoes escondidas na lei a setransp precisa
-cumprir, no caso um status empresa talvez ajudasse mas ainda precisaria disso na area admin
+- seriam 2 roles iniciais talvez pois uma seria o admin q pode tudo dentro do app e outra seria o agente de trânsito
+que consultaria placas e faria mais algumas ações, então deve-se começar pela role admin e depois podar as ações para agente
 
-- seriam 2 roles inicias talvez pois uma seria o admin q pode tudo dentro do app e outra seria o agente de CrachaDoTransito
-q consultaria placas e faria mais algumas acoes, entao deve-se comecar pela role admin e depois podar as acoes para agente
+- Vai ter usuário motorista ou algo do tipo pois é dito q e documento pessoal e intrasferível
+mas porte durante a atividade seria porte de algo físico, do app ou seria o qr code e placa
 
-- Vai ter usuario motorista ou algo do tipo pois é dito q e documento pessoal e intrasferivel
-mas porte durante a atividade seria porte de algo fisico, do app ou seria o qr code e placa
+- Três penalidades consecutivas, punição é o app ou o admin que coloca isso
 
-- Tres penalidades consecutivas, punicao é o app ou o admin q coloca isso ou app
+- Cronograma, pensando em usar monday ou deveriamos nos ater apenas ao tfs
 
-- art 39 e 47
+- Log de ações, verificar se a modelagem do bd já tem log de ações
 
-- ok - Caso do motorista alegar ser registrado mas placa nem qr forem encontrados 
-(possivel incosistencia no dado enviado antes)
+- Infra deve entrar em contato com algumas empresas, mas acho que precisamos ter a api primeiro
 
-Duvidas pra reuniao
+- reunião com a setransp pra definir os dados que eles precisam pra definir os do app pra fazer a api logo
 
- - ok - Todo command precisa ter a ida e volta
+-  quandoa api precisa estar pronta para mandar para as empresas para elas terem tempo pra mandar os dados
 
- - ok - Nome do app e nome do bd, Sistema Conduap
+- dados do itinerário dos motoristas seriam relevantes ou não
 
- - Cronograma
-
- - Log de acoes, verificar se a modelagem do bd ja tem log de acoes
-
- - Infra deve entrar em contato com algumas empresas, mas acho q precisamos ter a api primeiro
-
- - reuniao com a setransp pra definir os dados que eles precisam pra definir os do app pra fazer a api logo
-
- - qndo a api precisa estar pronta pra mandar pras empresas pra elas terem tempo pra mandar os dados
-
- - dados do itenerario dos motorista seriam relevantes ou nao
-
- - cpf nao esta sendo usado com chave primaria pois precisa-se saber se ele pode estar errado e
+- CPF não está sendo usado com chave primaria pois precisa-se saber se ele pode estar errado e
  por algum motivo precise ser atualizado, pois a validade do mesmo apenas a receita federal pode atestar
 
+
+Duvidas pra reuniao
 
 ===========================================================================================
 Regras de Negocio
@@ -204,17 +151,75 @@ Regras de Negocio
 ===========================================================================================
 Backlog
 
-ok - rever - Hello World em Clean conectando com bd
-ok - Tabela com chave, auto increment correto
-ok - Conduap -  Alinhar nome do projeto
-ok - Versionar - adicionei remoto errado sem querer mas corrigi, 
+ ok - rever - Hello World em Clean conectando com bd
+
+ ok - Tabela com chave, auto increment correto
+
+ ok - Conduap -  Alinhar nome do projeto
+
+ ok - Versionar - adicionei remoto errado sem querer mas corrigi, 
   problema foi q gastou algumas horas
-ok - Implementar command com handler proprio e implicit operator, 
+
+ ok - Implementar command com handler proprio e implicit operator, 
  modelstate na controller para uma entendi
+
  ok - Validacao IO (app - regras de negocio) com commands e handlers pra 
  fazer IO - Infra
+ 
  ok - Validacao command (command - datasets)
+ 
  ok - Ver os 3 espaços de validacao
+ 
+ ok - Conversar com a gestora sobre se deve-se falar ou nao com o cliente, pois o escopo da memoria é um e a lei nao 
+ 
+ ok - (geladeira) -  Ressalva consideravel - A validacao esta sendo feita artesanalmente para 
+
+ ok - coelga disse q é ok usar viewmodel com clean
+
+ ok - Fazer o json do objeto
+
+ ok - Falta documentos na tabela condutor
+
+ ok -  Lembrar onde colocar o data notation
+
+ ok - Pedido de criacao do bd fica com a tata
+
+ ok - Versionar
+
+ ok - Ler assinador avançado pra ver Questoes do builder e modelo de dados
+
+ok - Clean Architerure usando template, 
+
+ok - Pedir Permissões de projeto - Ambiente git para esse projeto
+
+ok - duvida - Usar viewmodel ou nao, olhar como esta o projeto
+
+ok - duvida - Checar o projeto como um todo
+
+ok - duvida - Seria o template mais pra se basear?
+
+ok - duvida - O Assinador avançado nao tem projeto de api no UI
+
+ok - duvida - Pq tem model na interface do domain
+
+ok - duvida - Handler e CQRS nao estou usando mas tb nao lmebro de ter visto no template
+
+ok - duvida - Comentar sobre focar em um design pattern ou outro pois todos nao vai dar
+
+ok - duvida - Falta algo do tipo DTO
+
+ok - duvida - A aplicacao mvc conhece infra
+
+ok - duvida - Pq o dominio tem uma interface se ele nao deve conhecer ninguem, ele nao deveria saber que metodos
+ele precisaria pois ele deveria conter apenas informacao, e nao metodos pq parecem implicar em regras
+de negocio da aplicacao, sendo assim o dominio deveria conhecer apenas dominio
+
+ok - Todo command precisa ter a ida e volta
+
+ok - Nome do app e nome do bd, Sistema Conduap
+
+ok - duvida - Caso do motorista alegar ser registrado mas placa nem qr forem encontrados 
+(possivel incosistencia no dado enviado antes)
 
 
 ===========================================================================================
