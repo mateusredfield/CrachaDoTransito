@@ -1,10 +1,17 @@
-======================== Conduatpp =====================================================
+======================== ConduApp =====================================================
 
- - Projeto API
+ - Home work - como receber o bulk, via swagger?
 
- - colocar inteiro
+ - Ler keykloak
+
+ - Ler duvidas para reuniao, importante frizar q o pedido dos dados pode influenciar na entrega tanto da setransp qnto das empresas,
+ e deixar isso homologado por email para caso ocorra atraso fica justificado
+
+ - Ver o q fazer com o bulk
 
  - KeyKloak
+
+ - Fazer a api para envio do bulk das empresas primeiro, entao nao precisa da modelagem desde ja mas sim dos dados
 
  - Requisitos
 
@@ -65,6 +72,8 @@
 
 Anotacoes
 
+ - Tavlez as tratativas de erro pudessem ser melhores
+
  - Precisa versionar o projeto exemplo pois da pra seguir dele
 
  - Ver onde ficam as DTOs
@@ -95,6 +104,15 @@ Perguntar
 - Tata
 
  Duvidas
+
+ - talvez precise saber qual a modelagem em definitivo pra pedir os dados pras empresas, pois da pra definir commo vai pedir os dados de mais de uma forma
+
+ - Perguntar o q fazer com o bulk pois seria interessante montar a api pra receber o bulk a qualquer momento e guardar isso em algum banco
+
+ - Frizar em pedir os dados para a setranps e as empresas ao mesmo tempo, de preferencia ja entrar em contato com a vim te buscar
+
+ - Ler duvidas para reuniao, importante frizar q o pedido dos dados pode influenciar na entrega tanto da setransp qnto das empresas,
+ e deixar isso homologado por email para caso ocorra atraso fica justificado
 
 - Precisa checar se pode criar veículo novamente com a mesma placa (a priori acho que não deveria)
 
@@ -131,6 +149,8 @@ mas porte durante a atividade seria porte de algo físico, do app ou seria o qr 
 - CPF não está sendo usado com chave primaria pois precisa-se saber se ele pode estar errado e
  por algum motivo precise ser atualizado, pois a validade do mesmo apenas a receita federal pode atestar
 
+- Se atualiza a versao da api ainda precisa recompilar o swagger, mas para o user nao deveria mudar nada
+
 Duvidas pra reuniao
 
 ===========================================================================================
@@ -147,6 +167,8 @@ Regras de Negocio
  - ok - Funcoes que retornam a Classe serializada como Json estao na 
    controller
  - ok - Codigo -2 significa dados incorretos do form, seja por nulo ou improprios
+ - appSettingsParts nao é usado, apenas esta la para referencia 
+
 
 
 ===========================================================================================
