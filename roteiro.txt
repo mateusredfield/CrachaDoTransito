@@ -2,6 +2,8 @@
 
  - Ler e implementar keykloak
 
+- Fazer o site usar a API
+
 - Replicar tudo o que foi feito para a tabela veiculo (clean arch, proj API, swagger, keykloak)
 para as tabelas (Condutor, PRC, Credenciamento, TiposSuspensao)
 
@@ -11,6 +13,8 @@ para as tabelas (Condutor, PRC, Credenciamento, TiposSuspensao)
  antes de colocar (durante as gravações de dados após o bulk)
 
  - Fazer a API para envio do bulk de dados das empresas
+
+ - Revisar a tabela carro depois
 
  - Utilizar a API fingindo ser empresa pra testar em local e dev, depois treinamento
  seriam eles mesmos
@@ -83,6 +87,8 @@ Talvez reler pois tem 3 tipos de injecao, construtor, propriedade e metodo
 
  - Metodo pra busca parcial de placas (exmplo todas que comecem com 123, todas placas SP)
 
+ - query tava dando pau com data annotation
+
 ============================================================================================
 
 Perguntar
@@ -99,6 +105,11 @@ Perguntar
 
  Duvidas
  
+  Laura
+
+  - Os tokens devem ser persistidos no bd? Onde? devem ser encripatados?
+
+
  - Conduapp - vai ser so numeros ou vai ter letras
 
  - Suspensao Temporaria (com data de inicio termino) precisa ser colocado pela setransp
