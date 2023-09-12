@@ -1,64 +1,47 @@
 ======================== ConduApp =====================================================
 
- - Home work - como receber o bulk, via swagger?
+ - Ler e implementar keykloak
 
- - Ler keykloak
+- Replicar tudo o que foi feito para a tabela veiculo (clean arch, proj API, swagger, keykloak)
+para as tabelas (Condutor, PRC, Credenciamento, TiposSuspensao)
 
- - Ler duvidas para reuniao, importante frizar q o pedido dos dados pode influenciar na entrega tanto da setransp qnto das empresas,
- e deixar isso homologado por email para caso ocorra atraso fica justificado
+ - Deixar CPF unico (mas ainda usar id)
 
- - Ver o q fazer com o bulk
+ - Deveria checar se nao tem um veiculo com a placa ja cadastrada (unique talvez)
+ antes de colocar (durante as gravações de dados após o bulk)
 
- - KeyKloak
+ - Fazer a API para envio do bulk de dados das empresas
 
- - Fazer a api para envio do bulk das empresas primeiro, entao nao precisa da modelagem desde ja mas sim dos dados
+ - Utilizar a API fingindo ser empresa pra testar em local e dev, depois treinamento
+ seriam eles mesmos
 
- - Requisitos
+ - Remodelar tabelas Veiculo, Condutor, PRC, Agente de transito
 
-  - Tabela, veiculo, condutor, prc, ag
+ - ConduApp gerado pela app, numero de serie com alguns digitos 
 
- - Fazer a primeira funcionalidade, coloca placa, recebe conduapp e pegar os demais requisito com a gestora apenas
+ - bater os tipos nulls das models com os not nulls com o bd, usando builder talvez
 
- - bater os tipos nulls e not nulls com o bd
+ - Setransp -  vai ver empresa e status, e pode mudar esse
+
+ - Qr equipe do rafa
+
+ - (Validacao do modelo de placa) talvez nao fazer pois isso deveria ser responsabilidade
+ da empresa
+
+ - Tabela de log de acoes, com campo de log obrigatorio
 
  - Tratativa de erros mais consisa
 
- - Deveria checar se nao tem um veiculo com a placa ja cadastrada anes de colocar
+ - Explicitar q as emrpesas farao bulk em ambiente de treinamento, e depois em producao
 
- - Deveria checar a consistencia da placa talvez, talvez
+- Ver diferenca entre IEnumerable e IList, ver sobre nullable pois o bd tem mtos null
 
- - Metodo pra busca parcial de placas
+- art 39 e 47 - reler
 
- - Como vai ser a pagina de alteracao
-
- - Ver diferenca entre IEnumerable e IList, ver sobre nullable pq do bd vem mto null
-
- - O certo era usar com array a chamada da controller qndo recebe o servico 
-
- - Checar td
-
- - O que fazer com o mer qndo tem mudanca de requisito, criar mais tabelas ou nao
-
- - Vizualizador de tasks
-
- - anotacao - DbExpress nao tem mais, agora é dblocal, nao tem limite de tamanho mas nao tem backup
-
- - Cronograma - Talvez usar o monday ou algo do tipo
-
- - anotacao - Reduncia pois é um projeto rapido
-
- - Keyckloak mas parece q tem no template, login interno por hora apenas
-
- - Estudar git ignore para projeto Visual Studio, 
+ - (futuramente/pos treinamento) Estudar git ignore para projeto Visual Studio, 
    mas talvez o template ja tenha
 
- - Pegar exemplo do felipe para entender algumas modelagens
-
- - (anotacao) ler sobre addscoped 
-
- - Limpar Listagem de cpfs na ultima task q fiz no agendamento
-
- - art 39 e 47 - reler
+- (futuramente/pos treinamento) ler sobre addscoped 
 
 ============================================================================================
 
@@ -88,6 +71,17 @@ Anotacoes
 Talvez reler pois tem 3 tipos de injecao, construtor, propriedade e metodo
  -https://www.tutorialsteacher.com/ioc/dependency-injection#google_vignette
 
+ - ok - Ler duvidas para reuniao, importante frizar q o pedido dos dados pode influenciar na entrega tanto da setransp qnto das empresas,
+ e deixar isso homologado por email para caso ocorra atraso fica justificado
+
+ - anotacao - DbExpress nao tem mais, agora é dblocal, nao tem limite de tamanho mas nao tem backup
+
+ - anotacao - Reduncia pois é um projeto rapido
+
+  - ( nao fazer ) Pegar exemplo do felipe para entender algumas modelagens. Nao fazer
+ por questoes de tempo
+
+ - Metodo pra busca parcial de placas (exmplo todas que comecem com 123, todas placas SP)
 
 ============================================================================================
 
@@ -104,6 +98,12 @@ Perguntar
 - Tata
 
  Duvidas
+ 
+ - Conduapp - vai ser so numeros ou vai ter letras
+
+ - Suspensao Temporaria (com data de inicio termino) precisa ser colocado pela setransp
+
+ - O que fazer com o mer qndo tem mudanca de requisito, criar mais tabelas ou nao
 
  - talvez precise saber qual a modelagem em definitivo pra pedir os dados pras empresas, pois da pra definir commo vai pedir os dados de mais de uma forma
 
@@ -158,16 +158,25 @@ Regras de Negocio
 
  - Problema - Nao tera acesso direto no BD pra mudar dados, seguindo politica de bd relacional
    mas eu mesmo nao gosto da ideia
- - Suspensao Temporaria
- - Nome do motorista
- - numero da CNH
- - ok - cpf
- - dados do itinerario
- - ok - Placa do veiculo, modelo, cor
- - ok - Funcoes que retornam a Classe serializada como Json estao na 
-   controller
- - ok - Codigo -2 significa dados incorretos do form, seja por nulo ou improprios
+ - Suspensao Temporaria (com data de inicio termino) pela Setransp mesmo (admin a priori)
+ - Codigo -2 significa dados incorretos do form, seja por nulo ou improprios
  - appSettingsParts nao é usado, apenas esta la para referencia 
+ - Agente de transito só consulta
+ - Veiculo nao tem mesma placa, uma placa pra cada veiculo
+ - ConduApp gerado pela app
+ - Carro pode estar Suspenso para empresa apenas e cidade
+ - Dados e consistencia ficam a cargo da empresa
+ - Setransp vai ver empresa e status, e pode mudar esse
+ - Qr equipe do rafa
+ - Tabela de log de acoes, com campo de log obrigatorio
+ - Autenticacao qndo usa API fica com a infra
+ - Itinerario nao (km futuramente)
+ - Deixar CPF unico (mas ainda usar id)
+ - Compilacao de versoes novas de API sem derrubar o site
+ - Carro pode estar Suspenso para empresa apenas e cidade
+  - (nao fazer) Deveria checar a consistencia da placa talvez, talvez, pois é responsabilidade
+ da empresa
+
 
 
 
@@ -245,6 +254,10 @@ ok - duvida - Caso do motorista alegar ser registrado mas placa nem qr forem enc
 (possivel incosistencia no dado enviado antes)
 
 ok - Validacao Infra (Buidler) - Infra - IO
+
+- ok -Cronograma - Talvez usar o monday ou algo do tipo, mas nao, tfs por ser conhecido
+ pelos demais, acordado em reuniao
+
 
 ===========================================================================================
 worklog
