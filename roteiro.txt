@@ -1,7 +1,7 @@
 ======================== ConduApp =====================================================
 
 - Replicar tudo o que foi feito para a tabela veiculo (clean arch, proj API, swagger, keykloak)
-para as tabelas (Condutor, PRC, TiposSuspensao)
+para as tabelas (Condutor, PRC, TiposSuspensao, Tabela Bulk com a data de atualizacoes)
 
  - Deixar CPF unico (mas ainda usar id)
 
@@ -23,6 +23,8 @@ para as tabelas (Condutor, PRC, TiposSuspensao)
 
  - Remodelar tabelas Veiculo, Condutor, PRC, Agente de transito
 
+ - Vai precisar cadastrar status possiveis em tabela Status 
+
  - bater os tipos nulls das models com os not nulls com o bd, usando builder talvez
 
  - Setransp -  vai ver empresa e status, e pode mudar esse
@@ -35,6 +37,8 @@ para as tabelas (Condutor, PRC, TiposSuspensao)
  - Tabela de log de acoes, com campo de log obrigatorio
 
 - estudar novamente await, a funcao de logout foi tensa
+
+- Trocar a base de dados para ConduApp
 
  - Tratativa de erros mais consisa
 
@@ -111,6 +115,10 @@ Perguntar
 
   - Os tokens devem ser persistidos no bd? Onde? devem ser encripatados?
 
+ Tata
+
+ - No bulk pode havar empresas colocando motoristas com dados incosistentes, o q fazer
+ pois cada empresa vai dar um bulk, talvez precise de uma tabela de atualizacoes, e uma tabela que guarde o bulk
 
  - Conduapp - vai ser so numeros ou vai ter letras
 
@@ -277,6 +285,8 @@ callback deles
 
 ok - Ressalva - Existem mais opcoes mas foi optado o caminho mais simplicado, apesar disso
   foi tortuoso pois a documentacao é escassa e dispersa Ler e implementar keykloak
+
+ok - CRUD completo para PRC exceto builder, e a mais controller UI usando controller API
 
 ===========================================================================================
 worklog
