@@ -1,27 +1,27 @@
 ======================== ConduApp =====================================================
 
- - Ler e implementar keykloak
-
-- Fazer o site usar a API
-
 - Replicar tudo o que foi feito para a tabela veiculo (clean arch, proj API, swagger, keykloak)
-para as tabelas (Condutor, PRC, Credenciamento, TiposSuspensao)
+para as tabelas (Condutor, PRC, TiposSuspensao)
 
  - Deixar CPF unico (mas ainda usar id)
 
  - Deveria checar se nao tem um veiculo com a placa ja cadastrada (unique talvez)
  antes de colocar (durante as gravações de dados após o bulk)
 
- - Fazer a API para envio do bulk de dados das empresas
+ - Tabela Credenciamento (agregacao)
 
- - Revisar a tabela carro depois
+ - ConduApp gerado pela app, numero de serie com alguns digitos 
+
+ - Fazer a API para envio do bulk de dados das empresas
 
  - Utilizar a API fingindo ser empresa pra testar em local e dev, depois treinamento
  seriam eles mesmos
 
- - Remodelar tabelas Veiculo, Condutor, PRC, Agente de transito
+ - Revisar a tabela carro depois
 
- - ConduApp gerado pela app, numero de serie com alguns digitos 
+ - Revisar quais sao as tabelas necessarias para a primeira entrega
+
+ - Remodelar tabelas Veiculo, Condutor, PRC, Agente de transito
 
  - bater os tipos nulls das models com os not nulls com o bd, usando builder talvez
 
@@ -33,6 +33,8 @@ para as tabelas (Condutor, PRC, Credenciamento, TiposSuspensao)
  da empresa
 
  - Tabela de log de acoes, com campo de log obrigatorio
+
+- estudar novamente await, a funcao de logout foi tensa
 
  - Tratativa de erros mais consisa
 
@@ -187,6 +189,7 @@ Regras de Negocio
  - Carro pode estar Suspenso para empresa apenas e cidade
   - (nao fazer) Deveria checar a consistencia da placa talvez, talvez, pois é responsabilidade
  da empresa
+ - A senha default do keykloak é 123, a usada padrao pra local dev etc é 1 a 6 ou 1 a 8Aa@
 
 
 
@@ -269,6 +272,11 @@ ok - Validacao Infra (Buidler) - Infra - IO
 - ok -Cronograma - Talvez usar o monday ou algo do tipo, mas nao, tfs por ser conhecido
  pelos demais, acordado em reuniao
 
+- ok - funcionou, problema estava na callback, Testar o q ja coloquei, olhar a
+callback deles
+
+ok - Ressalva - Existem mais opcoes mas foi optado o caminho mais simplicado, apesar disso
+  foi tortuoso pois a documentacao é escassa e dispersa Ler e implementar keykloak
 
 ===========================================================================================
 worklog
