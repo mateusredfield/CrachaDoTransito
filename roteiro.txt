@@ -1,7 +1,15 @@
 ======================== ConduApp =====================================================
 
+Tarefas
+
+- Controller PRC do site MVC finalmente usando servico da API com viewmodl e command aparentemente 
+
+- Refatoracao parcial concluida
+
 - Replicar tudo o que foi feito para a tabela veiculo (clean arch, proj API, swagger, keykloak)
 para as tabelas (Condutor, PRC, TiposSuspensao, Tabela Bulk com a data de atualizacoes)
+
+ - (parcial ok ) possivelmente refatorar toda a parte da viewmodel
 
  - colocar campo status e punicoes em prc
 
@@ -108,6 +116,8 @@ Talvez reler pois tem 3 tipos de injecao, construtor, propriedade e metodo
 
  - query tava dando pau com data annotation
 
+ - O site mvc tem replicas da models e commands
+
 ============================================================================================
 
 Perguntar
@@ -117,12 +127,7 @@ Bruno
   - ok - nao usar - Linha da controller
   - ok - Stream - limitadores tem seus valores no appsettings, limitar registros via controoler, ou um middleware pra controllar qntos mega
   - Se atualiza a versao da api ainda precisa recompilar o swagger, mas para o user nao deveria mudar nada
-
--Gaddini
-
   - ok - addscoped - Se o addscoped q liga a interface a classe
-
-  - (nao questionar) Vai usar qual versao do .net, e dependencias afins como os pacotes a serem baixados do nuget?
 
 - Tata
 
@@ -134,20 +139,20 @@ Bruno
 
  - Ver tamanho das requisoes com a infra
 
- - Data da publicacao em desenvolvimento
-
  - como vai ser a tabela log, pois ela por exemplo poderia salvar tambem os updates de dados inconsistentes das empresas
 
- - como vai ser a tabela punições (sancoes ou penalidades, ainda não sei o nome)
-   Quais vao ser as punicoes possiveis Suspensao Temporaria (com data de inicio termino) precisa ser colocado pela setransp
+ - como vai ser a tabela punições (sanções ou penalidades, ainda não sei o nome)
+   Quais vao ser as punicoes possiveis Suspensao Temporaria (com data de início termino) precisa ser colocado pela setransp
    
- - (parcial) Conduapp - vai ser so numeros ou vai ter letras - so numeros, sequencial, so falta qntos digitos vao ser
+ - Qntos digitos o conduapp vai ser  
 
-- (futuramenete) Vai ter usuário motorista ou algo do tipo pois é dito q e documento pessoal e intrasferível
-mas porte durante a atividade seria porte de algo físico, do app ou seria o qr code e placa
+ - Vai ter área do motorista na apliacação
 
-- Como fica a tabela Log de ações, verificar se a modelagem do bd já tem log de ações
+ - O motorista vai portar o conduapp apenas na foma de qr code
 
+ - Como fica a tabela Log de ações, verificar se a modelagem do bd já tem log de ações
+
+(parcial) Conduapp - vai ser so numeros ou vai ter letras - so numeros, sequencial, so falta qntos digitos vao ser
 
 Duvidas pra reuniao
 
