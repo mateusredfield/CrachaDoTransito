@@ -3,6 +3,12 @@
 - Replicar tudo o que foi feito para a tabela veiculo (clean arch, proj API, swagger, keykloak)
 para as tabelas (Condutor, PRC, TiposSuspensao, Tabela Bulk com a data de atualizacoes)
 
+ - colocar campo status e punicoes em prc
+
+ - Arrumar requisao no site, addscoped httpclient, criar uma pasta separada das controllers 
+
+ - Autenticacao no swagger
+
  - Deixar CPF unico (mas ainda usar id)
 
  - Deveria checar se nao tem um veiculo com a placa ja cadastrada (unique talvez)
@@ -53,6 +59,13 @@ para as tabelas (Condutor, PRC, TiposSuspensao, Tabela Bulk com a data de atuali
 
 - (futuramente/pos treinamento) ler sobre addscoped 
 
+- Talvez guard o bulk Perguntar o q fazer com o bulk pois seria interessante montar a api pra receber o bulk a qualquer momento e guardar isso em algum banco
+
+- seriam 2 roles iniciais talvez pois uma seria o admin q pode tudo dentro do app e outra seria o agente de trânsito
+que consultaria placas e faria mais algumas ações, então deve-se começar pela role admin e depois podar as ações para agente
+
+- Motorista vai ter bloqueio so app e bloqueio municipal
+
 ============================================================================================
 
  Preciso Ler
@@ -99,11 +112,15 @@ Talvez reler pois tem 3 tipos de injecao, construtor, propriedade e metodo
 
 Perguntar
 
+Bruno
+
+  - ok - nao usar - Linha da controller
+  - ok - Stream - limitadores tem seus valores no appsettings, limitar registros via controoler, ou um middleware pra controllar qntos mega
+  - Se atualiza a versao da api ainda precisa recompilar o swagger, mas para o user nao deveria mudar nada
+
 -Gaddini
 
-  - Onde ficam as opcoes de builder no context pois esta vazio
-
-  - Se o addscoped q liga a interface a classe
+  - ok - addscoped - Se o addscoped q liga a interface a classe
 
   - (nao questionar) Vai usar qual versao do .net, e dependencias afins como os pacotes a serem baixados do nuget?
 
@@ -111,66 +128,26 @@ Perguntar
 
  Duvidas
  
-  Laura
-
-  - Os tokens devem ser persistidos no bd? Onde? devem ser encripatados?
-
  Tata
 
- - No bulk pode havar empresas colocando motoristas com dados incosistentes, o q fazer
- pois cada empresa vai dar um bulk, talvez precise de uma tabela de atualizacoes, e uma tabela que guarde o bulk
+ - cronograma com as tarefas mais trabalhosas estimadas com base no tempo que os colegas levaram para fazer coisas afins
 
- - Conduapp - vai ser so numeros ou vai ter letras
+ - Ver tamanho das requisoes com a infra
 
- - Suspensao Temporaria (com data de inicio termino) precisa ser colocado pela setransp
+ - Data da publicacao em desenvolvimento
 
- - O que fazer com o mer qndo tem mudanca de requisito, criar mais tabelas ou nao
+ - como vai ser a tabela log, pois ela por exemplo poderia salvar tambem os updates de dados inconsistentes das empresas
 
- - talvez precise saber qual a modelagem em definitivo pra pedir os dados pras empresas, pois da pra definir commo vai pedir os dados de mais de uma forma
+ - como vai ser a tabela punições (sancoes ou penalidades, ainda não sei o nome)
+   Quais vao ser as punicoes possiveis Suspensao Temporaria (com data de inicio termino) precisa ser colocado pela setransp
+   
+ - (parcial) Conduapp - vai ser so numeros ou vai ter letras - so numeros, sequencial, so falta qntos digitos vao ser
 
- - Perguntar o q fazer com o bulk pois seria interessante montar a api pra receber o bulk a qualquer momento e guardar isso em algum banco
-
- - Frizar em pedir os dados para a setranps e as empresas ao mesmo tempo, de preferencia ja entrar em contato com a vim te buscar
-
- - Ler duvidas para reuniao, importante frizar q o pedido dos dados pode influenciar na entrega tanto da setransp qnto das empresas,
- e deixar isso homologado por email para caso ocorra atraso fica justificado
-
-- Precisa checar se pode criar veículo novamente com a mesma placa (a priori acho que não deveria)
-
-- Quantos conduapp a pessoa vai ter
-
-- Se a empresa para de atuar na cidade precisaria de um status de ativo/inativo
-
-- Preciso saber se temos exoneração de responsabilidade quanto a consistência de dados, como telefone do motorista
-- Os documentos CNH etc ficam a cargo da setransp, ou o app infelizmente precisara cuidar disso
-
-- dado que a lei afirma que o vínculo da empresa precisa ser renovado após 1 ano, deveria haver uma opção de
-Renovação desde já no app ou poderiamos postergar isso
-
-- seriam 2 roles iniciais talvez pois uma seria o admin q pode tudo dentro do app e outra seria o agente de trânsito
-que consultaria placas e faria mais algumas ações, então deve-se começar pela role admin e depois podar as ações para agente
-
-- Vai ter usuário motorista ou algo do tipo pois é dito q e documento pessoal e intrasferível
+- (futuramenete) Vai ter usuário motorista ou algo do tipo pois é dito q e documento pessoal e intrasferível
 mas porte durante a atividade seria porte de algo físico, do app ou seria o qr code e placa
 
-- Três penalidades consecutivas, punição é o app ou o admin que coloca isso
+- Como fica a tabela Log de ações, verificar se a modelagem do bd já tem log de ações
 
-- Cronograma, pensando em usar monday ou deveriamos nos ater apenas ao tfs
-
-- Log de ações, verificar se a modelagem do bd já tem log de ações
-
-- Infra deve entrar em contato com algumas empresas, mas acho que precisamos ter a api primeiro
-
-- reunião com a setransp pra definir os dados que eles precisam pra definir os do app pra fazer a api logo
-
--  quandoa api precisa estar pronta para mandar para as empresas para elas terem tempo pra mandar os dados
-
-- dados do itinerário dos motoristas seriam relevantes ou não
-
-- CPF não está sendo usado com chave primaria pois precisa-se saber se ele pode estar errado e
- por algum motivo precise ser atualizado, pois a validade do mesmo apenas a receita federal pode atestar
-
-- Se atualiza a versao da api ainda precisa recompilar o swagger, mas para o user nao deveria mudar nada
 
 Duvidas pra reuniao
 
@@ -198,7 +175,9 @@ Regras de Negocio
   - (nao fazer) Deveria checar a consistencia da placa talvez, talvez, pois é responsabilidade
  da empresa
  - A senha default do keykloak é 123, a usada padrao pra local dev etc é 1 a 6 ou 1 a 8Aa@
-
+ - Keykloak role admin e gestor para meu usuario, em localhost:44310
+ - Publicao do site fica em um lugar e backend api em outro
+ - Status do motorista pode ser ativo inativo suspenso
 
 
 
@@ -287,6 +266,38 @@ ok - Ressalva - Existem mais opcoes mas foi optado o caminho mais simplicado, ap
   foi tortuoso pois a documentacao é escassa e dispersa Ler e implementar keykloak
 
 ok - CRUD completo para PRC exceto builder, e a mais controller UI usando controller API
+
+ok - por enquanto uma so, mas alternativa futura seria uam area pra cada empresa. No bulk pode havar empresas colocando motoristas com dados incosistentes, o q fazer
+ pois cada empresa vai dar um bulk, talvez precise de uma tabela de atualizacoes, e uma tabela que guarde o bulk
+
+ok (teoria) - O que fazer com o mer qndo tem mudanca de requisito, criar mais tabelas ou nao
+
+ok - Frizar em pedir os dados para a setranps e as empresas ao mesmo tempo, de preferencia ja entrar em contato com a vim te buscar
+
+ok - Ler duvidas para reuniao, importante frizar q o pedido dos dados pode influenciar na entrega tanto da setransp qnto das empresas,
+ e deixar isso homologado por email para caso ocorra atraso fica justificado
+
+ok - nao pode - Precisa checar se pode criar veículo novamente com a mesma placa (a priori acho que não deveria)
+
+ok- um - Quantos conduapp a pessoa vai ter
+
+ok - Se a empresa para de atuar na cidade precisaria de um status de ativo/inativo
+
+ok - tem - Preciso saber se temos exoneração de responsabilidade quanto a consistência de dados, como telefone do motorista
+
+ok - ficam -  Os documentos CNH etc ficam a cargo da setransp, ou o app infelizmente precisara cuidar disso
+
+ok - futuramente - dado que a lei afirma que o vínculo da empresa precisa ser renovado após 1 ano, deveria haver uma opção de
+Renovação desde já no app ou poderiamos postergar isso
+
+ok - nao precisa - Os tokens devem ser persistidos no bd? Onde? devem ser encripatados? 
+
+ok - setransp - Três penalidades consecutivas, punição é o app ou o admin que coloca isso
+
+ok - futuramente dados do itinerário dos motoristas seriam relevantes ou não
+
+ok consistencia de dados a empresa q vai ficar responsavel, o log vai dizer quem fez o q - CPF não está sendo usado com chave primaria pois precisa-se saber se ele pode estar errado e
+ por algum motivo precise ser atualizado, pois a validade do mesmo apenas a receita federal pode atestar
 
 ===========================================================================================
 worklog
