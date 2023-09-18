@@ -2,9 +2,19 @@
 
 Tarefas
 
-- Controller PRC do site MVC finalmente usando servico da API com viewmodl e command aparentemente 
+perguntar - se precisa deixar o projeto da api rodando separado dado q os dois vao ficar separados 
+ok Bug resolvido (2 a 4 horas) - o servico estava amarrado ao site mvc ainda, por isso
+que dava pau em uma e na outra
 
-- Refatoracao parcial concluida
+- Replicar todo o fluxo acertado em PRC para Credenciamento
+
+- Comecar modelo do super servico do json, deve ser em credenciamento
+
+- coloca as validacoes nos demais commands
+
+- ver se o nome das camadas esta ok
+
+- Metodo que recebe json, json limitado por linhas e json gigante (reavaliar esse ultimo)
 
 - Replicar tudo o que foi feito para a tabela veiculo (clean arch, proj API, swagger, keykloak)
 para as tabelas (Condutor, PRC, TiposSuspensao, Tabela Bulk com a data de atualizacoes)
@@ -16,6 +26,10 @@ para as tabelas (Condutor, PRC, TiposSuspensao, Tabela Bulk com a data de atuali
  - Arrumar requisao no site, addscoped httpclient, criar uma pasta separada das controllers 
 
  - Autenticacao no swagger
+
+ - Passar as tabelas para o bd certo
+
+ - Veiculo pode precisar de refatoracao pois a viewmodel deveria ser uma lista apenas
 
  - Deixar CPF unico (mas ainda usar id)
 
@@ -74,6 +88,8 @@ que consultaria placas e faria mais algumas ações, então deve-se começar pel
 
 - Motorista vai ter bloqueio so app e bloqueio municipal
 
+-Usabilidade futura, qndo cair na pagina de atualizacao ja trazer os dados previos
+
 ============================================================================================
 
  Preciso Ler
@@ -85,6 +101,8 @@ que consultaria placas e faria mais algumas ações, então deve-se começar pel
 
 
 Anotacoes
+
+ - 
 
  - Tavlez as tratativas de erro pudessem ser melhores
 
@@ -135,6 +153,8 @@ Bruno
  
  Tata
 
+ - Conduapp Sendo numero senquencial poderia ser falha de seguranca
+
  - cronograma com as tarefas mais trabalhosas estimadas com base no tempo que os colegas levaram para fazer coisas afins
 
  - Ver tamanho das requisoes com a infra
@@ -159,6 +179,7 @@ Duvidas pra reuniao
 ===========================================================================================
 Regras de Negocio
 
+ - O banco aceita duplicatas por hora inezlimente em condutor
  - Problema - Nao tera acesso direto no BD pra mudar dados, seguindo politica de bd relacional
    mas eu mesmo nao gosto da ideia
  - Suspensao Temporaria (com data de inicio termino) pela Setransp mesmo (admin a priori)
@@ -183,6 +204,8 @@ Regras de Negocio
  - Keykloak role admin e gestor para meu usuario, em localhost:44310
  - Publicao do site fica em um lugar e backend api em outro
  - Status do motorista pode ser ativo inativo suspenso
+ - CPF nao e unico pois vai haver incosistencias logo precisa deixar repetir, o q vai ser unico
+   vai ser o id e o conduapp dele
 
 
 
@@ -303,6 +326,16 @@ ok - futuramente dados do itinerário dos motoristas seriam relevantes ou não
 
 ok consistencia de dados a empresa q vai ficar responsavel, o log vai dizer quem fez o q - CPF não está sendo usado com chave primaria pois precisa-se saber se ele pode estar errado e
  por algum motivo precise ser atualizado, pois a validade do mesmo apenas a receita federal pode atestar
+
+ok - Controller PRC do site MVC finalmente usando servico da API com viewmodl e command aparentemente
+
+ok -  Refatoracao parcial concluida
+
+ok - Replicar todo o fluxo acertado em PRC para veiculo
+
+ok - Replicar todo o fluxo acertado em PRC para Contudor
+
+ok - Ver onde tratar tudo isso na entrada pq n tem trativa em nada
 
 ===========================================================================================
 worklog
