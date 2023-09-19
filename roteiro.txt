@@ -2,75 +2,57 @@
 
 Tarefas
 
-perguntar - se precisa deixar o projeto da api rodando separado dado q os dois vao ficar separados 
-ok Bug resolvido (2 a 4 horas) - o servico estava amarrado ao site mvc ainda, por isso
-que dava pau em uma e na outra
+- pedir pacote treinamento (keykloak, ambiente publicacao e base de dados)
 
-- Replicar todo o fluxo acertado em PRC para Credenciamento
+- pesquisar se pode usar httpclient estatico
 
 - Comecar modelo do super servico do json, deve ser em credenciamento
 
-- coloca as validacoes nos demais commands
-
-- ver se o nome das camadas esta ok
-
-- Metodo que recebe json, json limitado por linhas e json gigante (reavaliar esse ultimo)
-
-- Replicar tudo o que foi feito para a tabela veiculo (clean arch, proj API, swagger, keykloak)
-para as tabelas (Condutor, PRC, TiposSuspensao, Tabela Bulk com a data de atualizacoes)
-
- - (parcial ok ) possivelmente refatorar toda a parte da viewmodel
-
- - colocar campo status e punicoes em prc
-
- - Arrumar requisao no site, addscoped httpclient, criar uma pasta separada das controllers 
-
- - Autenticacao no swagger
-
- - Passar as tabelas para o bd certo
-
- - Veiculo pode precisar de refatoracao pois a viewmodel deveria ser uma lista apenas
-
- - Deixar CPF unico (mas ainda usar id)
-
- - Deveria checar se nao tem um veiculo com a placa ja cadastrada (unique talvez)
- antes de colocar (durante as gravações de dados após o bulk)
-
- - Tabela Credenciamento (agregacao)
-
- - ConduApp gerado pela app, numero de serie com alguns digitos 
-
- - Fazer a API para envio do bulk de dados das empresas
+- Super serviço, Metodo que recebe json, json limitado por linhas e json gigante 
+(reavaliar esse ultimo)
 
  - Utilizar a API fingindo ser empresa pra testar em local e dev, depois treinamento
  seriam eles mesmos
 
- - Revisar a tabela carro depois
+- saber se os dados do bulk vao precisar ficar salvos ou nao apesar da responsabilidade
+de dados ser da empresa (provavelmente nao)
 
- - Revisar quais sao as tabelas necessarias para a primeira entrega
+- coloca as validacoes nos demais commands
 
- - Remodelar tabelas Veiculo, Condutor, PRC, Agente de transito
+- Vai precisar cadastrar status possiveis em tabela Status 
 
- - Vai precisar cadastrar status possiveis em tabela Status 
+- ver se o nome das camadas esta ok
 
- - bater os tipos nulls das models com os not nulls com o bd, usando builder talvez
+- Arrumar requisao no site, addscoped httpclient, criar uma pasta separada das controllers 
 
- - Setransp -  vai ver empresa e status, e pode mudar esse
+- Passar as tabelas para o bd certo
 
- - Qr equipe do rafa
+- Vai precisar cadastrar status possiveis em tabela Status 
 
- - (Validacao do modelo de placa) talvez nao fazer pois isso deveria ser responsabilidade
+- ConduApp gerado pela app, numero de serie com alguns digitos 
+
+- Revisar a tabela carro depois
+
+- Revisar quais sao as tabelas necessarias para a primeira entrega
+
+- Remodelar tabelas Veiculo, Condutor, PRC, Agente de transito
+
+- bater os tipos nulls das models com os not nulls com o bd, usando builder talvez
+
+- Setransp -  vai ver empresa e status, e pode mudar esse
+
+- Qr equipe do rafa
+
+- (Validacao do modelo de placa) talvez nao fazer pois isso deveria ser responsabilidade
  da empresa
 
- - Tabela de log de acoes, com campo de log obrigatorio
+- Tabela de log de acoes, com campo de log obrigatorio
 
 - estudar novamente await, a funcao de logout foi tensa
 
-- Trocar a base de dados para ConduApp
+- Tratativa de erros mais consisa
 
- - Tratativa de erros mais consisa
-
- - Explicitar q as emrpesas farao bulk em ambiente de treinamento, e depois em producao
+- Explicitar q as emrpesas farao bulk em ambiente de treinamento, e depois em producao
 
 - Ver diferenca entre IEnumerable e IList, ver sobre nullable pois o bd tem mtos null
 
@@ -88,7 +70,11 @@ que consultaria placas e faria mais algumas ações, então deve-se começar pel
 
 - Motorista vai ter bloqueio so app e bloqueio municipal
 
--Usabilidade futura, qndo cair na pagina de atualizacao ja trazer os dados previos
+- Usabilidade futura, qndo cair na pagina de atualizacao ja trazer os dados previos
+
+- Chaveamento da troca das versoes da api
+
+- Client http esta como estatico, reinplementar com addscoped e se der baseclient 
 
 ============================================================================================
 
@@ -179,6 +165,7 @@ Duvidas pra reuniao
 ===========================================================================================
 Regras de Negocio
 
+ - Assumindo que os cpf viram incosistentes, o conduapp foi usado como chave no credenciamento
  - O banco aceita duplicatas por hora inezlimente em condutor
  - Problema - Nao tera acesso direto no BD pra mudar dados, seguindo politica de bd relacional
    mas eu mesmo nao gosto da ideia
@@ -206,6 +193,10 @@ Regras de Negocio
  - Status do motorista pode ser ativo inativo suspenso
  - CPF nao e unico pois vai haver incosistencias logo precisa deixar repetir, o q vai ser unico
    vai ser o id e o conduapp dele
+ - hospedagem e url - \\desenvolvimento\ConduAp http://desenvolvimento:8018
+ - datatime default - 01-01-2000
+ - Dado que vai haver incosistencias a solucao provisoria ja foi pensada
+ 
 
 
 
@@ -336,6 +327,30 @@ ok - Replicar todo o fluxo acertado em PRC para veiculo
 ok - Replicar todo o fluxo acertado em PRC para Contudor
 
 ok - Ver onde tratar tudo isso na entrada pq n tem trativa em nada
+
+ok - multproj - se precisa deixar o projeto da api rodando separado dado q os dois vao ficar separados 
+
+ok Bug resolvido (2 a 4 horas) - o servico estava amarrado ao site mvc ainda, por isso
+que dava pau em uma e na outra
+
+ok - Replicar todo o fluxo acertado em PRC para Credenciamento
+
+ok -  Autenticacao no swagger
+
+ok - parcialmente refatorado pela alternativa funcionar bem possivelmente refatorar toda a parte da viewmodel
+
+ok - colocar campo status e punicoes em prc
+
+ok - Veiculo pode precisar de refatoracao pois a viewmodel deveria ser uma lista apenas, por hora nao
+
+ok - nao fazer - pois vai haver incosistencia por parte das PRC - Deixar CPF unico (mas ainda usar id)
+
+ok - nao fazer, se ja houver a placa cadastra duas vezes ou mais por hora. Deveria checar se 
+ nao tem um veiculo com a placa ja cadastrada (unique talvez)
+ antes de colocar (durante as gravações de dados após o bulk)
+
+ok - Tabela Credenciamento (agregacao)
+
 
 ===========================================================================================
 worklog
