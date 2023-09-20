@@ -2,11 +2,43 @@
 
 Tarefas
 
-- pedir pacote treinamento (keykloak, ambiente publicacao e base de dados)
+- ressalva - coloquei implementacao em app mas nem tanto (superServico)
+
+- super servico abstraindo tamanho dos dados e numero de linhas, mas sabendo o formato do json
+
+- Atribuir autenticacao do swagger no servico
+
+- Apos isso implementar com limitadores por baixo pra tamanho maximo, numero de linhas
+e requisicoes por minuto
+
+- swagger tambem (2o swagger) modelagem json (super servico), no caso as empresas terao acesso
+ao swagger qndo autenticarem
+
+- Pedir para entrar em contato com a empresa com o json informado e pedir pra por enquanto ser
+sem autencicao, mas pelo menos dar o modelo do json
+
+- super servico e pedir pacote treinamento (keykloak usuarios, ambiente publicacao e base de dados)
+
+- perguntar se a autenticacao pode vir pelo json
+
+- frizar o servico sem autenticacao por hora em treinamento, depois com autenticacao
+pois ja se tem o json
+
+- fazer o super servico e pedir autenticacao do servico, keykloak
+
+- precisa ter clientId na tabela PRC - tem 
+
+- historia de validacao do prc na requisicao
+
+- tem q bater o cnpj com o de prc cnpj do bd
 
 - pesquisar se pode usar httpclient estatico
 
+- Servico pra garar o conduapp
+
 - Comecar modelo do super servico do json, deve ser em credenciamento
+
+- Servico pra alterar o status, de condutor, de veiculo e de PRC
 
 - Super serviço, Metodo que recebe json, json limitado por linhas e json gigante 
 (reavaliar esse ultimo)
@@ -16,6 +48,8 @@ Tarefas
 
 - saber se os dados do bulk vao precisar ficar salvos ou nao apesar da responsabilidade
 de dados ser da empresa (provavelmente nao)
+
+- tabela log
 
 - coloca as validacoes nos demais commands
 
@@ -128,16 +162,23 @@ Perguntar
 
 Bruno
 
-  - ok - nao usar - Linha da controller
-  - ok - Stream - limitadores tem seus valores no appsettings, limitar registros via controoler, ou um middleware pra controllar qntos mega
-  - Se atualiza a versao da api ainda precisa recompilar o swagger, mas para o user nao deveria mudar nada
-  - ok - addscoped - Se o addscoped q liga a interface a classe
+ - As models do mvc precisam estar tambem no apliacao ou nao, pois e um cliente externo
 
 - Tata
 
  Duvidas
  
  Tata
+
+- Clonagem de placa e documentos, ex se o conduapp tiver no carro o cara consegue tirar foto
+e passar em outro carro com documento de outra pessoa tb
+
+- 1 dia util de outubro com todas as empresas muito improvavel
+
+- faremos chacagem de multas
+
+ - Conduapp e de motorista mas se estiver estampado no carro nao da certo pois cada carro pode ter
+ diversos motoristas
 
  - Conduapp Sendo numero senquencial poderia ser falha de seguranca
 
@@ -196,6 +237,9 @@ Regras de Negocio
  - hospedagem e url - \\desenvolvimento\ConduAp http://desenvolvimento:8018
  - datatime default - 01-01-2000
  - Dado que vai haver incosistencias a solucao provisoria ja foi pensada
+ - Status de motorista refere-se a situacao dele na cidade como motorista de app geral
+ - Status do carro idem a motorista
+ - Credenciamento q diz se o dado motorista pode andar com aquele carro por aquela empresa
  
 
 
