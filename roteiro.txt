@@ -2,91 +2,70 @@
 
 Tarefas
 
-- ressalva - coloquei implementacao em app mas nem tanto (superServico)
-
-- super servico abstraindo tamanho dos dados e numero de linhas, mas sabendo o formato do json
-
-- Atribuir autenticacao do swagger no servico
-
-- Apos isso implementar com limitadores por baixo pra tamanho maximo, numero de linhas
-e requisicoes por minuto
-
-- swagger tambem (2o swagger) modelagem json (super servico), no caso as empresas terao acesso
-ao swagger qndo autenticarem
-
-- Pedir para entrar em contato com a empresa com o json informado e pedir pra por enquanto ser
-sem autencicao, mas pelo menos dar o modelo do json
-
-- super servico e pedir pacote treinamento (keykloak usuarios, ambiente publicacao e base de dados)
-
-- perguntar se a autenticacao pode vir pelo json
-
-- frizar o servico sem autenticacao por hora em treinamento, depois com autenticacao
-pois ja se tem o json
-
-- fazer o super servico e pedir autenticacao do servico, keykloak
-
-- precisa ter clientId na tabela PRC - tem 
+- super servico com autenticacao
 
 - historia de validacao do prc na requisicao
 
 - tem q bater o cnpj com o de prc cnpj do bd
 
-- pesquisar se pode usar httpclient estatico
+- precisa ter clientId na tabela PRC
 
-- Servico pra garar o conduapp
+- super servico com limitador, dados, linhas e por tempo (talvez)
 
-- Comecar modelo do super servico do json, deve ser em credenciamento
+- super servico com swagger a parte
+
+- super servico abstraindo tamanho dos dados e numero de linhas, mas sabendo o formato do json
+
+- Atribuir autenticacao do swagger no servico
+
+- Pedir usuario teste pra fazer teste de carga
+
+- super servico e pedir pacote treinamento (keykloak usuarios, ambiente publicacao e base de dados)
+
+- Pedir para entrar em contato com a empresa com o json informado e pedir pra por enquanto ser
+sem autencicao, mas pelo menos dar o modelo do json
 
 - Servico pra alterar o status, de condutor, de veiculo e de PRC
 
-- Super serviço, Metodo que recebe json, json limitado por linhas e json gigante 
-(reavaliar esse ultimo)
+- pesquisar se pode usar httpclient estatico
 
- - Utilizar a API fingindo ser empresa pra testar em local e dev, depois treinamento
- seriam eles mesmos
-
-- saber se os dados do bulk vao precisar ficar salvos ou nao apesar da responsabilidade
-de dados ser da empresa (provavelmente nao)
-
-- tabela log
-
-- coloca as validacoes nos demais commands
+- motorista precisa de uma historia so pra alteracoes de status, no caso seria uma relacao punicao dele com a empresa
+ou o status dele real seria derivado, no caso a consulta pelo status dele seria pelo credenciamento
 
 - Vai precisar cadastrar status possiveis em tabela Status 
 
-- ver se o nome das camadas esta ok
-
-- Arrumar requisao no site, addscoped httpclient, criar uma pasta separada das controllers 
+- tabela log
 
 - Passar as tabelas para o bd certo
 
 - Vai precisar cadastrar status possiveis em tabela Status 
 
-- ConduApp gerado pela app, numero de serie com alguns digitos 
-
-- Revisar a tabela carro depois
-
 - Revisar quais sao as tabelas necessarias para a primeira entrega
-
-- Remodelar tabelas Veiculo, Condutor, PRC, Agente de transito
 
 - bater os tipos nulls das models com os not nulls com o bd, usando builder talvez
 
+- Vai precisar de uma tabela de usuarios
+
 - Setransp -  vai ver empresa e status, e pode mudar esse
-
-- Qr equipe do rafa
-
-- (Validacao do modelo de placa) talvez nao fazer pois isso deveria ser responsabilidade
- da empresa
-
-- Tabela de log de acoes, com campo de log obrigatorio
 
 - estudar novamente await, a funcao de logout foi tensa
 
 - Tratativa de erros mais consisa
 
-- Explicitar q as emrpesas farao bulk em ambiente de treinamento, e depois em producao
+- Parte de punicoes ainda nao esta clara
+
+- Logica do numero de serie do conduapp, poderia ser uma tabela com um numero so
+
+- Qr equipe do rafa
+
+- Colocar mais try
+
+- pedir vistoria no appsettings
+
+- Frizar q nao vao conseguir dar update por chave primaria
+ tem q bater o cnpj com o de prc cnpj do bd
+
+(futuramente) - Revisar a tabela carro depois
 
 - Ver diferenca entre IEnumerable e IList, ver sobre nullable pois o bd tem mtos null
 
@@ -97,18 +76,9 @@ de dados ser da empresa (provavelmente nao)
 
 - (futuramente/pos treinamento) ler sobre addscoped 
 
-- Talvez guard o bulk Perguntar o q fazer com o bulk pois seria interessante montar a api pra receber o bulk a qualquer momento e guardar isso em algum banco
+- (futuramente/opcional) Usabilidade futura, qndo cair na pagina de atualizacao ja trazer os dados previos
 
-- seriam 2 roles iniciais talvez pois uma seria o admin q pode tudo dentro do app e outra seria o agente de trânsito
-que consultaria placas e faria mais algumas ações, então deve-se começar pela role admin e depois podar as ações para agente
-
-- Motorista vai ter bloqueio so app e bloqueio municipal
-
-- Usabilidade futura, qndo cair na pagina de atualizacao ja trazer os dados previos
-
-- Chaveamento da troca das versoes da api
-
-- Client http esta como estatico, reinplementar com addscoped e se der baseclient 
+- (futuramente/pos treinamento) Chaveamento da troca das versoes da api
 
 ============================================================================================
 
@@ -121,8 +91,6 @@ que consultaria placas e faria mais algumas ações, então deve-se começar pel
 
 
 Anotacoes
-
- - 
 
  - Tavlez as tratativas de erro pudessem ser melhores
 
@@ -169,6 +137,12 @@ Bruno
  Duvidas
  
  Tata
+
+- Explicitar q os dados do tipo chave primaria nao serao alterados por bulk de dados
+dados das empresas, mas sim por um usuario do site, no caso poderia se dar um
+usuario para as empresas caso eles errem os dados
+
+- Explicitar q as emrpesas farao bulk em ambiente de treinamento, e depois em producao
 
 - Clonagem de placa e documentos, ex se o conduapp tiver no carro o cara consegue tirar foto
 e passar em outro carro com documento de outra pessoa tb
@@ -240,7 +214,13 @@ Regras de Negocio
  - Status de motorista refere-se a situacao dele na cidade como motorista de app geral
  - Status do carro idem a motorista
  - Credenciamento q diz se o dado motorista pode andar com aquele carro por aquela empresa
- 
+ - O metodo que retorna conduapp nao esta a prova de incosistencia pq nao tem como
+ saber se um cpf esta duplicado com mais de um conduapp
+ - Qndo o cpf nao tem conduapp vinculado, o retorno inicial é menos -1, depois outro
+ metodo decide se ele sera inserido
+ - O metodo getConduApp esta em dois arquivos
+ - CreateConduapp apenas gera o numero, e nao insere no bd, e inclusive o numero nao
+ e unico pois é gerado com base no ultimo numero inserido na tabela condutor
 
 
 
@@ -395,6 +375,35 @@ ok - nao fazer, se ja houver a placa cadastra duas vezes ou mais por hora. Dever
 
 ok - Tabela Credenciamento (agregacao)
 
+ok - SuperServico operando apenas para gerar condutores por hora
+
+ok - Pegar o json exemplo sem autenticacao e chamar o servico
+
+ok - coloquei implementacao em app mas nem tanto (superServico)
+
+ok - nao, no maximo a tabela log - saber se os dados do bulk vao precisar ficar salvos ou nao apesar da responsabilidade
+de dados ser da empresa (provavelmente nao)
+
+ok - ja tinha - credenciamento precisa de data
+
+- swagger tambem (2o swagger) modelagem json (super servico), no caso as empresas terao acesso
+ao swagger qndo autenticarem
+
+ok - pelo header - perguntar se a autenticacao pode vir pelo json
+
+ok - deveria ser no handler com command quebrando em commands menores metodos getConduApp gerarConduApp 
+precisam ser revisados pois podem nao estar nas melhores classes
+
+ok - nao pode ir pra treinamento sem autenticacao frizar o servico sem autenticacao por hora em treinamento, 
+depois com autenticacao pois ja se tem o json
+
+ok (parcial) - coloca as validacoes nos demais commands
+
+ok (parcial) - Servico pra garar o conduapp
+
+ok - Comecar modelo do super servico do json, deve ser em credenciamento
+
+ok (parcial) ver se o nome das camadas esta ok
 
 ===========================================================================================
 worklog
