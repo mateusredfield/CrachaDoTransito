@@ -4,11 +4,11 @@ Tarefas
 
 - super servico com autenticacao
 
+- tabela PRC com clientID (mas nao em toda a historia com validacao)
+
+- (depois) tem q bater o cnpj com o de prc cnpj do bd
+
 - historia de validacao do prc na requisicao
-
-- tem q bater o cnpj com o de prc cnpj do bd
-
-- precisa ter clientId na tabela PRC
 
 - super servico com limitador, dados, linhas e por tempo (talvez)
 
