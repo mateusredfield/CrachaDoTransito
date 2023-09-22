@@ -2,57 +2,47 @@
 
 Tarefas
 
-- super servico com autenticacao
+- super servico e pedir pacote treinamento (keykloak usuarios, ambiente publicacao e base de dados)
 
-- remover authenticate dessa api e colocar na api reservada para os externos
+- retirar alteracao de status no super servico, isso fica a cargo da secretaria
+no servico de vizualizacao de alteracao de status
+
+- pedir o pacote treinamento
+
+- pedir as telas
+
+- Servico pra alterar o status, de condutor, de veiculo e de PRC
+
+- fazer o site
+
+- ver sobre o qr code
+
+- publicar e testar
+
+- 30Mb da Refused
+
+- pesquisar se pode usar httpclient estatico
 
 - citar, o site usa o servico normal, mas no keykloak q precisa de autenticacao
 
 - tirar o clientId e etc pq esta chumbado no codigo
 
-- tabela PRC com clientID (mas nao em toda a historia com validacao)
+- colocar os dados certos no app settings
 
-- (depois) tem q bater o cnpj com o de prc cnpj do bd
+- espeficicar no swagger os limites de banda e colocar um tempo de 5 min entre cada
+request
 
-- historia de validacao do prc na requisicao
-
-- super servico com limitador, dados, linhas e por tempo (talvez)
-
-- super servico com swagger a parte
-
-- super servico abstraindo tamanho dos dados e numero de linhas, mas sabendo o formato do json
-
-- Atribuir autenticacao do swagger no servico
-
-- Pedir usuario teste pra fazer teste de carga
-
-- super servico e pedir pacote treinamento (keykloak usuarios, ambiente publicacao e base de dados)
-
-- Pedir para entrar em contato com a empresa com o json informado e pedir pra por enquanto ser
-sem autencicao, mas pelo menos dar o modelo do json
-
-- Servico pra alterar o status, de condutor, de veiculo e de PRC
+- bater os tipos nulls das models com os not nulls com o bd, usando builder talvez
 
 - pesquisar se pode usar httpclient estatico
-
-- motorista precisa de uma historia so pra alteracoes de status, no caso seria uma relacao punicao dele com a empresa
-ou o status dele real seria derivado, no caso a consulta pelo status dele seria pelo credenciamento
-
-- Vai precisar cadastrar status possiveis em tabela Status 
 
 - tabela log
 
 - Passar as tabelas para o bd certo
 
-- Vai precisar cadastrar status possiveis em tabela Status 
-
 - Revisar quais sao as tabelas necessarias para a primeira entrega
 
-- bater os tipos nulls das models com os not nulls com o bd, usando builder talvez
-
 - Vai precisar de uma tabela de usuarios
-
-- Setransp -  vai ver empresa e status, e pode mudar esse
 
 - estudar novamente await, a funcao de logout foi tensa
 
@@ -74,6 +64,10 @@ ou o status dele real seria derivado, no caso a consulta pelo status dele seria 
 (futuramente) - Revisar a tabela carro depois
 
 - Ver diferenca entre IEnumerable e IList, ver sobre nullable pois o bd tem mtos null
+
+- (depois) tem q bater o cnpj com o de prc cnpj do bd
+
+- (depois) historia de validacao do prc na requisicao
 
 - art 39 e 47 - reler
 
@@ -433,6 +427,28 @@ ok - Comecar modelo do super servico do json, deve ser em credenciamento
 
 ok (parcial) ver se o nome das camadas esta ok
 
+ok - super servico com autenticacao, com ajuda de colega de login unico
+
+ok -  remover authenticate dessa api e colocar na api reservada para os externos
+
+ok - nao precisa -  tabela PRC com clientID (mas nao em toda a historia com validacao)
+
+ok - nao precisa - o tamanho dos dados e tempo de resposta vai ser limitado por pelos
+  server de pg mas é bom especificar no swagger super servico com limitador, dados, linhas e 
+  por tempo (talvez)
+
+ok - super servico com swagger a parte
+
+ok - super servico abstraindo tamanho dos dados e numero de linhas, mas sabendo o formato do json
+
+ok - Atribuir autenticacao do swagger no servico
+
+ok - Pedir usuario teste pra fazer teste de carga
+
+ok - ja foi pedido o tecnico e ja se tem o servico exceto a publicacao - Pedir para 
+entrar em contato com a empresa com o json informado e pedir pra por enquanto ser
+sem autencicao, mas pelo menos dar o modelo do json
+
 ===========================================================================================
 worklog
 
@@ -448,3 +464,9 @@ Dentro do Clean, get, getAll, getJSon
 
 Tempo integralmente gasto refatorando um exemplo de clean api
 que nao atende os padroes pedidos
+
+
+
+eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJENVdtRnlDclVNMXZSWGR3VzdfYzZOZlJ0OG5GdTVLdHI1OVk4ZmxFSVdJIn0.eyJleHAiOjE2OTU0MjI2OTYsImlhdCI6MTY5NTQxNTQ5NiwianRpIjoiYjliNDM2NTctMWQwMC00ZGUzLTk5YjMtZjQxNjQ2ZGRiNDEwIiwiaXNzIjoiaHR0cDovL2Qtc3NvLnByYWlhZ3JhbmRlLnNwLmdvdi5icjo4MDgwL3JlYWxtcy9pbnRlcm5vIiwic3ViIjoiMjk0ZDAzMmQtOTIzOC00YjQ5LTllNGItYjVjZmVmMTdkMzllIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY29uZHUtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6ImJiMGZiZDZkLWM0MGMtNDk4Mi04NGI2LTY0MTNlZGIyMmM4ZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTAiXSwicmVzb3VyY2VfYWNjZXNzIjp7ImNvbmR1LWFwcCI6eyJyb2xlcyI6WyJhZG1pbiIsImdlc3RvciJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6ImJiMGZiZDZkLWM0MGMtNDk4Mi04NGI2LTY0MTNlZGIyMmM4ZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTWF0ZXVzIGRvcyBTYW50b3MiLCJJZENhZGFzdHJvVW5pY28iOiI1NCIsInByZWZlcnJlZF91c2VybmFtZSI6IjM2ODkxMjcyODkwIiwiZ2l2ZW5fbmFtZSI6Ik1hdGV1cyBkb3MgU2FudG9zIiwiZmFtaWx5X25hbWUiOiIiLCJlbWFpbCI6Im1hdGV1c3NAcHJhaWFncmFuZGUuc3AuZ292LmJyIn0.J5KuY1txUpVPeE7iH6X3o-Vx1kCi_HsnuKMIbi1u665FeM8wroS_F904aCROAwmvk8KDLoym-ZhiatqigewFXcfES9yI3uk-PphAXMx-jeT8_0xvObevLXVp6norQG8aoDyjfwtnb8NUY9JQvSAg-M1XbYfMp-8bE6Q7SKQGkgwV_c8w_sTWog66peajLMU4RRQh3Tlevq9GjZ22zzDdvEweQh-dAHdMLkHL5jO_vSmojl6NmR5tnWt-f0e60hdVsVaN4IX8jNyh7rDLTwKFALjGvTX1uhl5iGCsQvMNpyd-l68m9AWW53Jc-bXNmfJ0q72WYbGNgpFdSNgcgNBkMg
+
+            curl -X POST "https://localhost:44312/Credenciamento/SuperServico" -H  "accept: */*" -H  "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJENVdtRnlDclVNMXZSWGR3VzdfYzZOZlJ0OG5GdTVLdHI1OVk4ZmxFSVdJIn0.eyJleHAiOjE2OTU0MjI2OTYsImlhdCI6MTY5NTQxNTQ5NiwianRpIjoiYjliNDM2NTctMWQwMC00ZGUzLTk5YjMtZjQxNjQ2ZGRiNDEwIiwiaXNzIjoiaHR0cDovL2Qtc3NvLnByYWlhZ3JhbmRlLnNwLmdvdi5icjo4MDgwL3JlYWxtcy9pbnRlcm5vIiwic3ViIjoiMjk0ZDAzMmQtOTIzOC00YjQ5LTllNGItYjVjZmVmMTdkMzllIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY29uZHUtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6ImJiMGZiZDZkLWM0MGMtNDk4Mi04NGI2LTY0MTNlZGIyMmM4ZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTAiXSwicmVzb3VyY2VfYWNjZXNzIjp7ImNvbmR1LWFwcCI6eyJyb2xlcyI6WyJhZG1pbiIsImdlc3RvciJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6ImJiMGZiZDZkLWM0MGMtNDk4Mi04NGI2LTY0MTNlZGIyMmM4ZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTWF0ZXVzIGRvcyBTYW50b3MiLCJJZENhZGFzdHJvVW5pY28iOiI1NCIsInByZWZlcnJlZF91c2VybmFtZSI6IjM2ODkxMjcyODkwIiwiZ2l2ZW5fbmFtZSI6Ik1hdGV1cyBkb3MgU2FudG9zIiwiZmFtaWx5X25hbWUiOiIiLCJlbWFpbCI6Im1hdGV1c3NAcHJhaWFncmFuZGUuc3AuZ292LmJyIn0.J5KuY1txUpVPeE7iH6X3o-Vx1kCi_HsnuKMIbi1u665FeM8wroS_F904aCROAwmvk8KDLoym-ZhiatqigewFXcfES9yI3uk-PphAXMx-jeT8_0xvObevLXVp6norQG8aoDyjfwtnb8NUY9JQvSAg-M1XbYfMp-8bE6Q7SKQGkgwV_c8w_sTWog66peajLMU4RRQh3Tlevq9GjZ22zzDdvEweQh-dAHdMLkHL5jO_vSmojl6NmR5tnWt-f0e60hdVsVaN4IX8jNyh7rDLTwKFALjGvTX1uhl5iGCsQvMNpyd-l68m9AWW53Jc-bXNmfJ0q72WYbGNgpFdSNgcgNBkMg" -H  "Content-Type: application/json" -d @conteudo.txt
