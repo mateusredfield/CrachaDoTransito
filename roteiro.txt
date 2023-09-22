@@ -4,6 +4,12 @@ Tarefas
 
 - super servico com autenticacao
 
+- remover authenticate dessa api e colocar na api reservada para os externos
+
+- citar, o site usa o servico normal, mas no keykloak q precisa de autenticacao
+
+- tirar o clientId e etc pq esta chumbado no codigo
+
 - tabela PRC com clientID (mas nao em toda a historia com validacao)
 
 - (depois) tem q bater o cnpj com o de prc cnpj do bd
@@ -92,6 +98,8 @@ ou o status dele real seria derivado, no caso a consulta pelo status dele seria 
 
 Anotacoes
 
+ - Client.BaseAddress = new Uri(StaticConfiguration.GetValue<string>("BaseUrl"));
+
  - Tavlez as tratativas de erro pudessem ser melhores
 
  - Precisa versionar o projeto exemplo pois da pra seguir dele
@@ -123,6 +131,26 @@ Talvez reler pois tem 3 tipos de injecao, construtor, propriedade e metodo
  - query tava dando pau com data annotation
 
  - O site mvc tem replicas da models e commands
+
+
+{
+  "cnpjEmpresa": "2",
+  "nomeEmpresa": "ab",
+  "linhas": [
+    {
+      "cpfMotorista": "12345678910",
+      "nomeMotorista": "fulano",
+      "idadeMotorista": "30",
+      "statusMotorista": "Ativo",
+      "placaCarro": "XXX1234",
+      "modeloCarro": "fiat",
+      "corCarro": "branco",
+      "anoCarro": "2020",
+      "statusCarro": "Ativo"
+    }
+  ]
+}
+
 
 ============================================================================================
 
