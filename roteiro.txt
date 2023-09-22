@@ -4,12 +4,10 @@ Tarefas
 
 - super servico e pedir pacote treinamento (keykloak usuarios, ambiente publicacao e base de dados)
 
+- pedir as telas
+
 - retirar alteracao de status no super servico, isso fica a cargo da secretaria
 no servico de vizualizacao de alteracao de status
-
-- pedir o pacote treinamento
-
-- pedir as telas
 
 - Servico pra alterar o status, de condutor, de veiculo e de PRC
 
