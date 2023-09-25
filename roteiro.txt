@@ -2,33 +2,38 @@
 
 Tarefas
 
-- super servico e pedir pacote treinamento (keykloak usuarios, ambiente publicacao e base de dados)
+ok - colocar em todo o site mvc o codigo pra requisitar com cabecalho certo
 
-- pedir as telas
+- Replicar as tabelas para o bd certo
 
-- retirar alteracao de status no super servico, isso fica a cargo da secretaria
-no servico de vizualizacao de alteracao de status
+- servico de mudanca de status de motorista
 
-- Servico pra alterar o status, de condutor, de veiculo e de PRC
-
-- fazer o site
-
-- ver sobre o qr code
-
-- publicar e testar
-
-- 30Mb da Refused
-
-- pesquisar se pode usar httpclient estatico
-
-- citar, o site usa o servico normal, mas no keykloak q precisa de autenticacao
+- publicar o servico, depois alguma coisa do site
 
 - tirar o clientId e etc pq esta chumbado no codigo
 
 - colocar os dados certos no app settings
 
+- ver sobre o qr code
+
+- fazer o site
+
+- pedir vistoria no appsettings
+
+- Parte de punicoes ainda nao esta clara
+
+- Ver se precisa da tabela usuarios
+
+- colocar a inclusao do cabecalho em classe de servico basica depois
+
+- o agente de transito é muito necssario
+
+- pesquisar se pode usar httpclient estatico
+
 - espeficicar no swagger os limites de banda e colocar um tempo de 5 min entre cada
 request
+
+- faltou status do veiculo
 
 - bater os tipos nulls das models com os not nulls com o bd, usando builder talvez
 
@@ -36,25 +41,19 @@ request
 
 - tabela log
 
-- Passar as tabelas para o bd certo
+- retirar thread blocking do cabecalho, desempenho pode ser reduzido
 
 - Revisar quais sao as tabelas necessarias para a primeira entrega
 
-- Vai precisar de uma tabela de usuarios
+- Colocar os erros mais precisos como o 401
 
 - estudar novamente await, a funcao de logout foi tensa
 
 - Tratativa de erros mais consisa
 
-- Parte de punicoes ainda nao esta clara
-
-- Logica do numero de serie do conduapp, poderia ser uma tabela com um numero so
-
-- Qr equipe do rafa
-
 - Colocar mais try
 
-- pedir vistoria no appsettings
+- servicos de mudanças de status empresa e carro
 
 - Frizar q nao vao conseguir dar update por chave primaria
  tem q bater o cnpj com o de prc cnpj do bd
@@ -152,11 +151,22 @@ Bruno
 
  - As models do mvc precisam estar tambem no apliacao ou nao, pois e um cliente externo
 
-- Tata
-
  Duvidas
  
  Tata
+
+ - faltou status do veiculo
+
+ - mandar msg slack com o pedido
+
+- qual o default do status qndo da create motorista
+
+- Frizar q nao vao conseguir dar update por chave primaria
+ tem q bater o cnpj com o de prc cnpj do bd
+
+- Telas o mais simples possivel e nao precisa ser todas
+
+- informacoes sobre a leitura do qr code
 
 - Explicitar q os dados do tipo chave primaria nao serao alterados por bulk de dados
 dados das empresas, mas sim por um usuario do site, no caso poderia se dar um
@@ -241,8 +251,13 @@ Regras de Negocio
  - O metodo getConduApp esta em dois arquivos
  - CreateConduapp apenas gera o numero, e nao insere no bd, e inclusive o numero nao
  e unico pois é gerado com base no ultimo numero inserido na tabela condutor
-
-
+- 30Mb da Refused
+- Nao pode mexer direto no bd se nao da incosistencia
+- Status de carro tambem nao conta pois isso tambem é servico derivado
+- Motorista é criado com ativo por default
+- Update carro e motorista nao dao update no status, usa-se servico especifico para isso
+- Thread Blocking na adicao do header
+- as aginas precisa passar por index pra setar direito o token
 
 ===========================================================================================
 Backlog
@@ -447,6 +462,31 @@ ok - ja foi pedido o tecnico e ja se tem o servico exceto a publicacao - Pedir p
 entrar em contato com a empresa com o json informado e pedir pra por enquanto ser
 sem autencicao, mas pelo menos dar o modelo do json
 
+ok - retirar alteracao de status motorista do super servico
+
+ok - logica do numro do conduapp
+
+ok - super servico e pedir pacote treinamento (keykloak usuarios, ambiente publicacao e base de dados)
+usuarios, roles
+pacote treinamento 
+  keycloak - mateus gestor, agente, fulano gestor, beltrano agente, clientId e clientsecret
+  da apliacao 
+  ambiente de publicacao com caminho do armazenamento, e url de publicacao
+  banco de dados de treinamento com permissoes para o dev
+
+ok - pedir as telas - o mais simples possivel pois nao ha requisito tecnico qntoa  layout
+logo nao ha rigor nisso por ser cosmetico e nao estar requisitado previamente
+
+ok -  retirar alteracao de status no super servico, isso fica a cargo da secretaria
+no servico de vizualizacao de alteracao de status
+
+- ok - fechar a api tambem pra autenticacao usando mesmo codigo
+do servico do externo (uam api ja tem que é a do prc, falta a normal fechar por authorize)
+
+ok - corrigido citar, o site usa o servico normal, mas no keykloak q precisa de autenticacao
+
+ok - Logica do numero de serie do conduapp, poderia ser uma tabela com um numero so
+
 ===========================================================================================
 worklog
 
@@ -468,3 +508,21 @@ que nao atende os padroes pedidos
 eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJENVdtRnlDclVNMXZSWGR3VzdfYzZOZlJ0OG5GdTVLdHI1OVk4ZmxFSVdJIn0.eyJleHAiOjE2OTU0MjI2OTYsImlhdCI6MTY5NTQxNTQ5NiwianRpIjoiYjliNDM2NTctMWQwMC00ZGUzLTk5YjMtZjQxNjQ2ZGRiNDEwIiwiaXNzIjoiaHR0cDovL2Qtc3NvLnByYWlhZ3JhbmRlLnNwLmdvdi5icjo4MDgwL3JlYWxtcy9pbnRlcm5vIiwic3ViIjoiMjk0ZDAzMmQtOTIzOC00YjQ5LTllNGItYjVjZmVmMTdkMzllIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY29uZHUtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6ImJiMGZiZDZkLWM0MGMtNDk4Mi04NGI2LTY0MTNlZGIyMmM4ZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTAiXSwicmVzb3VyY2VfYWNjZXNzIjp7ImNvbmR1LWFwcCI6eyJyb2xlcyI6WyJhZG1pbiIsImdlc3RvciJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6ImJiMGZiZDZkLWM0MGMtNDk4Mi04NGI2LTY0MTNlZGIyMmM4ZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTWF0ZXVzIGRvcyBTYW50b3MiLCJJZENhZGFzdHJvVW5pY28iOiI1NCIsInByZWZlcnJlZF91c2VybmFtZSI6IjM2ODkxMjcyODkwIiwiZ2l2ZW5fbmFtZSI6Ik1hdGV1cyBkb3MgU2FudG9zIiwiZmFtaWx5X25hbWUiOiIiLCJlbWFpbCI6Im1hdGV1c3NAcHJhaWFncmFuZGUuc3AuZ292LmJyIn0.J5KuY1txUpVPeE7iH6X3o-Vx1kCi_HsnuKMIbi1u665FeM8wroS_F904aCROAwmvk8KDLoym-ZhiatqigewFXcfES9yI3uk-PphAXMx-jeT8_0xvObevLXVp6norQG8aoDyjfwtnb8NUY9JQvSAg-M1XbYfMp-8bE6Q7SKQGkgwV_c8w_sTWog66peajLMU4RRQh3Tlevq9GjZ22zzDdvEweQh-dAHdMLkHL5jO_vSmojl6NmR5tnWt-f0e60hdVsVaN4IX8jNyh7rDLTwKFALjGvTX1uhl5iGCsQvMNpyd-l68m9AWW53Jc-bXNmfJ0q72WYbGNgpFdSNgcgNBkMg
 
             curl -X POST "https://localhost:44312/Credenciamento/SuperServico" -H  "accept: */*" -H  "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJENVdtRnlDclVNMXZSWGR3VzdfYzZOZlJ0OG5GdTVLdHI1OVk4ZmxFSVdJIn0.eyJleHAiOjE2OTU0MjI2OTYsImlhdCI6MTY5NTQxNTQ5NiwianRpIjoiYjliNDM2NTctMWQwMC00ZGUzLTk5YjMtZjQxNjQ2ZGRiNDEwIiwiaXNzIjoiaHR0cDovL2Qtc3NvLnByYWlhZ3JhbmRlLnNwLmdvdi5icjo4MDgwL3JlYWxtcy9pbnRlcm5vIiwic3ViIjoiMjk0ZDAzMmQtOTIzOC00YjQ5LTllNGItYjVjZmVmMTdkMzllIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY29uZHUtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6ImJiMGZiZDZkLWM0MGMtNDk4Mi04NGI2LTY0MTNlZGIyMmM4ZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTAiXSwicmVzb3VyY2VfYWNjZXNzIjp7ImNvbmR1LWFwcCI6eyJyb2xlcyI6WyJhZG1pbiIsImdlc3RvciJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6ImJiMGZiZDZkLWM0MGMtNDk4Mi04NGI2LTY0MTNlZGIyMmM4ZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTWF0ZXVzIGRvcyBTYW50b3MiLCJJZENhZGFzdHJvVW5pY28iOiI1NCIsInByZWZlcnJlZF91c2VybmFtZSI6IjM2ODkxMjcyODkwIiwiZ2l2ZW5fbmFtZSI6Ik1hdGV1cyBkb3MgU2FudG9zIiwiZmFtaWx5X25hbWUiOiIiLCJlbWFpbCI6Im1hdGV1c3NAcHJhaWFncmFuZGUuc3AuZ292LmJyIn0.J5KuY1txUpVPeE7iH6X3o-Vx1kCi_HsnuKMIbi1u665FeM8wroS_F904aCROAwmvk8KDLoym-ZhiatqigewFXcfES9yI3uk-PphAXMx-jeT8_0xvObevLXVp6norQG8aoDyjfwtnb8NUY9JQvSAg-M1XbYfMp-8bE6Q7SKQGkgwV_c8w_sTWog66peajLMU4RRQh3Tlevq9GjZ22zzDdvEweQh-dAHdMLkHL5jO_vSmojl6NmR5tnWt-f0e60hdVsVaN4IX8jNyh7rDLTwKFALjGvTX1uhl5iGCsQvMNpyd-l68m9AWW53Jc-bXNmfJ0q72WYbGNgpFdSNgcgNBkMg" -H  "Content-Type: application/json" -d @conteudo.txt
+
+{
+  "cnpjEmpresa": "2",
+  "nomeEmpresa": "ab",
+  "linhas": [
+    {
+      "cpfMotorista": "12345678911",
+      "nomeMotorista": "string",
+      "idadeMotorista": "30",
+      "statusMotorista": "Ativo",
+      "placaCarro": "abc1234",
+      "modeloCarro": "fiat",
+      "corCarro": "cinza",
+      "anoCarro": "2000",
+      "statusCarro": "Ativo"
+    }
+  ]
+}    
