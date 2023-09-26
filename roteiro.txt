@@ -2,17 +2,11 @@
 
 Tarefas
 
-ok - colocar em todo o site mvc o codigo pra requisitar com cabecalho certo
+- publicacoes
 
-- Replicar as tabelas para o bd certo
-
-- servico de mudanca de status de motorista
+- timeout nao esta derrubando
 
 - publicar o servico, depois alguma coisa do site
-
-- tirar o clientId e etc pq esta chumbado no codigo
-
-- colocar os dados certos no app settings
 
 - ver sobre o qr code
 
@@ -33,11 +27,13 @@ ok - colocar em todo o site mvc o codigo pra requisitar com cabecalho certo
 - espeficicar no swagger os limites de banda e colocar um tempo de 5 min entre cada
 request
 
-- faltou status do veiculo
+ok - faltou status do veiculo
 
 - bater os tipos nulls das models com os not nulls com o bd, usando builder talvez
 
 - pesquisar se pode usar httpclient estatico
+
+ok - checar se o token ta expirado
 
 - tabela log
 
@@ -57,6 +53,12 @@ request
 
 - Frizar q nao vao conseguir dar update por chave primaria
  tem q bater o cnpj com o de prc cnpj do bd
+
+- a pessoa consegue ter dois conduapp pra evitar incosistencia
+
+- pode ser que tenha update duas vezes pq nao codei direito
+
+- Derrubar sessao qndo receber unauthorize
 
 (futuramente) - Revisar a tabela carro depois
 
@@ -258,6 +260,8 @@ Regras de Negocio
 - Update carro e motorista nao dao update no status, usa-se servico especifico para isso
 - Thread Blocking na adicao do header
 - as aginas precisa passar por index pra setar direito o token
+- acho q prc precisa cadastrar usando o site, pois o superservico nao deve fazer isso
+- a pessoa consegue ter dois conduapp pra evitar incosistencia
 
 ===========================================================================================
 Backlog
@@ -486,6 +490,22 @@ do servico do externo (uam api ja tem que é a do prc, falta a normal fechar por
 ok - corrigido citar, o site usa o servico normal, mas no keykloak q precisa de autenticacao
 
 ok - Logica do numero de serie do conduapp, poderia ser uma tabela com um numero so
+
+ok - colocar em todo o site mvc o codigo pra requisitar com cabecalho certo
+
+ok - adicionar status no credenciamento e no carro, PRC
+
+ok - Replicar as tabelas para o bd certo
+
+ok - historia servico de mudanca de status de motorista
+
+ok - revisar os app settings antes de publicar
+
+ok - perguntar do validAudience
+
+ok - tirar o clientId e etc pq esta chumbado no codigo
+
+ok - colocar os dados certos no app settings
 
 ===========================================================================================
 worklog
