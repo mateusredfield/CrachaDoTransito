@@ -2,13 +2,30 @@
 
 Tarefas
 
-- publicacoes
+- colocar a branch master e pegar da remota d publicacao e deixar essa parada apenas
+para releases
 
-- timeout nao esta derrubando
+- fazer funcao de hash
 
-- publicar o servico, depois alguma coisa do site
+- colocar funcao de hash no create
+
+- fazer funcao gerar QR code na pagina
+
+- fazer o servico q retorna td do motorista
+
+- publicar os servicos, depois alguma coisa do site
+
+- fazer pagina mockada da setransp que tem essas funcionalidades
+
+- a pagina da setransp vai ter uma consulta condutor, que vai retornar um condutor
+e nessa mesma vai ser liberado a url com a hash q vai linkar para uma pagina publica
+com os dados do motorista. Parece q as paginas vao ser iguais
+
+- publicar os servicos, depois alguma coisa do site
 
 - ver sobre o qr code
+
+- timeout nao esta derrubando
 
 - fazer o site
 
@@ -27,7 +44,12 @@ Tarefas
 - espeficicar no swagger os limites de banda e colocar um tempo de 5 min entre cada
 request
 
-ok - faltou status do veiculo
+- padrao q da extend em classe, padrao de acrestar metodo numa classe, exemplo do
+register services
+
+- padrao visitor, tecnica pra extend o objeto
+
+- colocar as orientacoes nos appsettings recebiddas pelo slack do henrique
 
 - bater os tipos nulls das models com os not nulls com o bd, usando builder talvez
 
@@ -157,6 +179,13 @@ Bruno
  
  Tata
 
+ - 403 - perdi 1 dia util com o ban q tomei sem fazer nada errado, mas a segurança entendeu 
+q tinha codigo malicioso, keycloak com pouca informacao sem framwork, com devops, com
+- ex keycloak precisa das urls cadastradas, nao so roles com usuarios client secrets e idadeMotorista
+- alem de ter um problema severo de proxy reverso do proprio keycloak q ainda nao se sabe 
+se vem da aplicacao ou do server, imagina-se config da aplicacao
+- agora tem hash extenso numa pagina q seria mais simples em tese
+
  - faltou status do veiculo
 
  - mandar msg slack com o pedido
@@ -262,6 +291,12 @@ Regras de Negocio
 - as aginas precisa passar por index pra setar direito o token
 - acho q prc precisa cadastrar usando o site, pois o superservico nao deve fazer isso
 - a pessoa consegue ter dois conduapp pra evitar incosistencia
+- 403 - perdi 1 dia util com o ban q tomei sem fazer nada errado, mas a segurança entendeu 
+q tinha codigo malicioso, keycloak com pouca informacao sem framwork, com devops, com
+- ex keycloak precisa das urls cadastradas, nao so roles com usuarios client secrets e idadeMotorista
+- alem de ter um problema severo de proxy reverso do proprio keycloak q ainda nao se sabe 
+se vem da aplicacao ou do server, imagina-se config da aplicacao
+- agora tem hash extenso numa pagina q seria mais simples em tese
 
 ===========================================================================================
 Backlog
@@ -507,6 +542,12 @@ ok - tirar o clientId e etc pq esta chumbado no codigo
 
 ok - colocar os dados certos no app settings
 
+ok - faltou status do veiculo
+
+ok - colcocar apis com o devops
+
+ok - passar o bd e perguntar do ambiente treinamento
+
 ===========================================================================================
 worklog
 
@@ -527,7 +568,9 @@ que nao atende os padroes pedidos
 
 eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJENVdtRnlDclVNMXZSWGR3VzdfYzZOZlJ0OG5GdTVLdHI1OVk4ZmxFSVdJIn0.eyJleHAiOjE2OTU0MjI2OTYsImlhdCI6MTY5NTQxNTQ5NiwianRpIjoiYjliNDM2NTctMWQwMC00ZGUzLTk5YjMtZjQxNjQ2ZGRiNDEwIiwiaXNzIjoiaHR0cDovL2Qtc3NvLnByYWlhZ3JhbmRlLnNwLmdvdi5icjo4MDgwL3JlYWxtcy9pbnRlcm5vIiwic3ViIjoiMjk0ZDAzMmQtOTIzOC00YjQ5LTllNGItYjVjZmVmMTdkMzllIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY29uZHUtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6ImJiMGZiZDZkLWM0MGMtNDk4Mi04NGI2LTY0MTNlZGIyMmM4ZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTAiXSwicmVzb3VyY2VfYWNjZXNzIjp7ImNvbmR1LWFwcCI6eyJyb2xlcyI6WyJhZG1pbiIsImdlc3RvciJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6ImJiMGZiZDZkLWM0MGMtNDk4Mi04NGI2LTY0MTNlZGIyMmM4ZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTWF0ZXVzIGRvcyBTYW50b3MiLCJJZENhZGFzdHJvVW5pY28iOiI1NCIsInByZWZlcnJlZF91c2VybmFtZSI6IjM2ODkxMjcyODkwIiwiZ2l2ZW5fbmFtZSI6Ik1hdGV1cyBkb3MgU2FudG9zIiwiZmFtaWx5X25hbWUiOiIiLCJlbWFpbCI6Im1hdGV1c3NAcHJhaWFncmFuZGUuc3AuZ292LmJyIn0.J5KuY1txUpVPeE7iH6X3o-Vx1kCi_HsnuKMIbi1u665FeM8wroS_F904aCROAwmvk8KDLoym-ZhiatqigewFXcfES9yI3uk-PphAXMx-jeT8_0xvObevLXVp6norQG8aoDyjfwtnb8NUY9JQvSAg-M1XbYfMp-8bE6Q7SKQGkgwV_c8w_sTWog66peajLMU4RRQh3Tlevq9GjZ22zzDdvEweQh-dAHdMLkHL5jO_vSmojl6NmR5tnWt-f0e60hdVsVaN4IX8jNyh7rDLTwKFALjGvTX1uhl5iGCsQvMNpyd-l68m9AWW53Jc-bXNmfJ0q72WYbGNgpFdSNgcgNBkMg
 
-            curl -X POST "https://localhost:44312/Credenciamento/SuperServico" -H  "accept: */*" -H  "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJENVdtRnlDclVNMXZSWGR3VzdfYzZOZlJ0OG5GdTVLdHI1OVk4ZmxFSVdJIn0.eyJleHAiOjE2OTU0MjI2OTYsImlhdCI6MTY5NTQxNTQ5NiwianRpIjoiYjliNDM2NTctMWQwMC00ZGUzLTk5YjMtZjQxNjQ2ZGRiNDEwIiwiaXNzIjoiaHR0cDovL2Qtc3NvLnByYWlhZ3JhbmRlLnNwLmdvdi5icjo4MDgwL3JlYWxtcy9pbnRlcm5vIiwic3ViIjoiMjk0ZDAzMmQtOTIzOC00YjQ5LTllNGItYjVjZmVmMTdkMzllIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY29uZHUtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6ImJiMGZiZDZkLWM0MGMtNDk4Mi04NGI2LTY0MTNlZGIyMmM4ZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTAiXSwicmVzb3VyY2VfYWNjZXNzIjp7ImNvbmR1LWFwcCI6eyJyb2xlcyI6WyJhZG1pbiIsImdlc3RvciJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6ImJiMGZiZDZkLWM0MGMtNDk4Mi04NGI2LTY0MTNlZGIyMmM4ZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTWF0ZXVzIGRvcyBTYW50b3MiLCJJZENhZGFzdHJvVW5pY28iOiI1NCIsInByZWZlcnJlZF91c2VybmFtZSI6IjM2ODkxMjcyODkwIiwiZ2l2ZW5fbmFtZSI6Ik1hdGV1cyBkb3MgU2FudG9zIiwiZmFtaWx5X25hbWUiOiIiLCJlbWFpbCI6Im1hdGV1c3NAcHJhaWFncmFuZGUuc3AuZ292LmJyIn0.J5KuY1txUpVPeE7iH6X3o-Vx1kCi_HsnuKMIbi1u665FeM8wroS_F904aCROAwmvk8KDLoym-ZhiatqigewFXcfES9yI3uk-PphAXMx-jeT8_0xvObevLXVp6norQG8aoDyjfwtnb8NUY9JQvSAg-M1XbYfMp-8bE6Q7SKQGkgwV_c8w_sTWog66peajLMU4RRQh3Tlevq9GjZ22zzDdvEweQh-dAHdMLkHL5jO_vSmojl6NmR5tnWt-f0e60hdVsVaN4IX8jNyh7rDLTwKFALjGvTX1uhl5iGCsQvMNpyd-l68m9AWW53Jc-bXNmfJ0q72WYbGNgpFdSNgcgNBkMg" -H  "Content-Type: application/json" -d @conteudo.txt
+            curl -X POST "https://localhost:44312/Credenciamento/SuperServico" -H  "accept: */*" -H  "Authorization: Bearer " -H  "Content-Type: application/json" -d @conteudo.txt
+
+            curl -X GET "https://localhost:44350/PRC/ListarPRCs" -H  "accept: */*" -H  "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJENVdtRnlDclVNMXZSWGR3VzdfYzZOZlJ0OG5GdTVLdHI1OVk4ZmxFSVdJIn0.eyJleHAiOjE2OTU4MjQzNTksImlhdCI6MTY5NTgxODk1OSwianRpIjoiNGU1MTg5N2EtM2FiZS00NDkwLWE2ZjktODAxZDFhOGRmMDJjIiwiaXNzIjoiaHR0cDovL2Qtc3NvLnByYWlhZ3JhbmRlLnNwLmdvdi5icjo4MDgwL3JlYWxtcy9pbnRlcm5vIiwic3ViIjoiMjk0ZDAzMmQtOTIzOC00YjQ5LTllNGItYjVjZmVmMTdkMzllIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY29uZHUtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6ImYyNWJjZGE1LTY1ODUtNGU0ZC05YmI5LThiNzIzY2M5MDBmMyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTAiXSwicmVzb3VyY2VfYWNjZXNzIjp7ImNvbmR1LWFwcCI6eyJyb2xlcyI6WyJhZG1pbiIsImdlc3RvciJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6ImYyNWJjZGE1LTY1ODUtNGU0ZC05YmI5LThiNzIzY2M5MDBmMyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTWF0ZXVzIGRvcyBTYW50b3MiLCJJZENhZGFzdHJvVW5pY28iOiI1NCIsInByZWZlcnJlZF91c2VybmFtZSI6IjM2ODkxMjcyODkwIiwiZ2l2ZW5fbmFtZSI6Ik1hdGV1cyBkb3MgU2FudG9zIiwiZmFtaWx5X25hbWUiOiIiLCJlbWFpbCI6Im1hdGV1c3NAcHJhaWFncmFuZGUuc3AuZ292LmJyIn0.ArJPkyfi9ygTQa2Pk4HnftAb1SVJTOp496J1KI8ri8wux_U6LudJ5Ngd6Xwbwxqq62qJXLul25gNb4zpj84SXKkHnyhKbBB6LlgUe6fa0cMDU-_vAA01NttOnqfyZZpqKjum4RQt34GHxHsDIj3KUAeKa6sWyDIsEvbl2izf0WkY5793gVYz576csSDuRXnJlIilb9naufZiIgiNQ7CIB5gnc8Gvac6OljfcqfR3eZaTO4kmNdylvMGftgcyMlkWNYsYa3hBiHL2VXL_XrnL_zk_LnxYA6X78Qf2U3eil3Npt77syltfh602zPQaZupXi42pe-1iQxXMY6hMS1jCKA" -H  "Content-Type: application/json"
 
 {
   "cnpjEmpresa": "2",
@@ -546,3 +589,32 @@ eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJENVdtRnlDclVNMXZSWGR3VzdfYzZO
     }
   ]
 }    
+
+
+
+
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "BaseUrl": "https://localhost:44350/",
+  "BaseUrlSite": "https://localhost:44310/",
+  "Authority": "http://d-sso.praiagrande.sp.gov.br:8080/realms/interno",
+  "ClientID": "condu-app",
+  "ClientSecret": "7aJsyJhmhEwqtaFE45oyYDVc2pBbjcgT",
+  "AllowedHosts": "*"
+}
+
+
+
+{"realm":"interno","public_key":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnAv5xKRXycLZQpAE8g89k2zcn6qbq3XkmQT7nOAMqy+7cH3UryRxib9bUZSWV1lBompyKCtbtIeJjAk5mCUXYJ2TRb1lkdKD0n8LPya0eVPYkskvXv3qeno2Z6tkPqcw/Hv9GBkOu/z23vGXGDa9ppmTJHhtsTRQsvcO8gb4ZiMf63E21ZE+suR1rYD0/seudxOUVGNgPGkUuHkqrBvRsWbjFk+fGDuLlaxn2oi1z42P87gjw5NZpVdsQDeEzHGoc+k5QyGBUsquNw2J/9/ZshgbLtMR6FhBqn7XX8QiTaSL7pa+Ci14oplgQGjjyHHANGfN22J1r9+aXVqS713fxwIDAQAB","token-service":"https://t-sso.praiagrande.sp.gov.br/realms/interno/protocol/openid-connect","account-service":"https://t-sso.praiagrande.sp.gov.br/realms/interno/account","tokens-not-before":1693504289}
+
+
+eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJENVdtRnlDclVNMXZSWGR3VzdfYzZOZlJ0OG5GdTVLdHI1OVk4ZmxFSVdJIn0.eyJleHAiOjE2OTYwMTg1ODAsImlhdCI6MTY5NjAxMzE4MCwianRpIjoiZGZhMzhiOGYtNTUwMS00NzgzLTk0YzktMDQyOWRkZDNjYTZkIiwiaXNzIjoiaHR0cDovL2Qtc3NvLnByYWlhZ3JhbmRlLnNwLmdvdi5icjo4MDgwL3JlYWxtcy9pbnRlcm5vIiwic3ViIjoiMjk0ZDAzMmQtOTIzOC00YjQ5LTllNGItYjVjZmVmMTdkMzllIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY29uZHUtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6ImU4NmY2ZTc3LTBhNzEtNGI1MC1iMjFlLTRkZjFmOTZhOGJmYyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTAiXSwicmVzb3VyY2VfYWNjZXNzIjp7ImNvbmR1LWFwcCI6eyJyb2xlcyI6WyJhZG1pbiIsImdlc3RvciJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6ImU4NmY2ZTc3LTBhNzEtNGI1MC1iMjFlLTRkZjFmOTZhOGJmYyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTWF0ZXVzIGRvcyBTYW50b3MiLCJJZENhZGFzdHJvVW5pY28iOiI1NCIsInByZWZlcnJlZF91c2VybmFtZSI6IjM2ODkxMjcyODkwIiwiZ2l2ZW5fbmFtZSI6Ik1hdGV1cyBkb3MgU2FudG9zIiwiZmFtaWx5X25hbWUiOiIiLCJlbWFpbCI6Im1hdGV1c3NAcHJhaWFncmFuZGUuc3AuZ292LmJyIn0.kjUH-yuk9VFRrVm2-Bwtcs7RKm84lyBwDy5Qu7QGd8KLV9KuDxtw0PzlPuSh9FxJ5D2OW6yXMqzKhZjaEoRPbOVQX-E_3YP9s78HDsJVBFcbML6gRMBA6dS6O1kGQwFipvyY9JDr-P2k7tyt_JY64f3hqhcCDUWkS56NCFizU6nHETvRwT2rHKsvpzOHz04rtVltrs5QzvT1VyPbff_lnq6wpIR3JzOhLeQoRLWYBR3SGrfse4ERILBVVfDE03W40ig05idkao81lhVmSPr6zzTLXH37ovikrLJrAsKw3jgZvX5YWhZzRzr4OSVfF3bzyyl6ZW3n_gd1y9M4w0WtIw
+
+eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJEWHBPWmxLektOYlFZYXJOUi1xQjRCalFIZEkyb1RWdldzZnlHUUVHS0QwIn0.eyJleHAiOjE2OTYwMTY2NDQsImlhdCI6MTY5NjAxMzA0NCwianRpIjoiNDBiYTc3MGMtMTA4NC00MDRhLTk3MzQtMGM4NGE5MGRiMTY3IiwiaXNzIjoiaHR0cHM6Ly90LXNzby5wcmFpYWdyYW5kZS5zcC5nb3YuYnIvcmVhbG1zL2ludGVybm8iLCJzdWIiOiI5MWU5ZmEzZS0zNzMzLTQ2MzMtYTFkNi1jODMxYTQwMmJkMTkiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJjb25kdS1hcHAiLCJzZXNzaW9uX3N0YXRlIjoiNDgxYzY3MDYtMzIyOS00OTA0LTg0ZTYtY2ExNTg5ZGVhN2YyIiwiYWNyIjoiMSIsInJlc291cmNlX2FjY2VzcyI6eyJjb25kdS1hcHAiOnsicm9sZXMiOlsiYWRtaW4iLCJnZXN0b3IiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiI0ODFjNjcwNi0zMjI5LTQ5MDQtODRlNi1jYTE1ODlkZWE3ZjIiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6Ik1hdGV1cyBkb3MgU2FudG9zIiwiSWRDYWRhc3Ryb1VuaWNvIjoiMTE0IiwicHJlZmVycmVkX3VzZXJuYW1lIjoiMzY4OTEyNzI4OTAiLCJnaXZlbl9uYW1lIjoiTWF0ZXVzIGRvcyBTYW50b3MiLCJmYW1pbHlfbmFtZSI6IiIsImVtYWlsIjoibWF0ZXVzY2FtcGFyaUBnbWFpbC5jb20ifQ.kQIkxV2LuAGFPiV0tTMpAi9Lsi-DvFcpcX31bxaUIZjL6XgBObp1qFdJZff5z6iMpyi4lJaqjSKZxM94dpjm8Gv2yJ8EXT4QMIFsIpx52LG3SobUv6jRaPvtkIv1sWketB7UGjp7zwLrb0ySn41k3JAEXwszSYR_KHd-HtHrYRUejABYzzu9dNfzyeuB6cCcddw-2hGghtXp-CULDv20Ng8ubxZ4zXc26CLS-2halS-VKyxjnIx3pNs4AaYZ_zNA7RkMC_SLoBEIRtAOVMs3J_klDK1c70Icr5jrHBduld2CGWtsSoiF8wBdu8LwjqqLuxFwWbuCpFNx7mL2fOdiQQ
+
