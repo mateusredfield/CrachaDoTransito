@@ -2,18 +2,7 @@
 
 Tarefas
 
-- colocar a branch master e pegar da remota d publicacao e deixar essa parada apenas
-para releases
-
-- fazer funcao de hash
-
-- colocar funcao de hash no create
-
-- fazer funcao gerar QR code na pagina
-
-- fazer o servico q retorna td do motorista
-
-- publicar os servicos, depois alguma coisa do site
+- fazer o site
 
 - fazer pagina mockada da setransp que tem essas funcionalidades
 
@@ -21,19 +10,13 @@ para releases
 e nessa mesma vai ser liberado a url com a hash q vai linkar para uma pagina publica
 com os dados do motorista. Parece q as paginas vao ser iguais
 
-- publicar os servicos, depois alguma coisa do site
-
-- ver sobre o qr code
-
 - timeout nao esta derrubando
-
-- fazer o site
-
-- pedir vistoria no appsettings
 
 - Parte de punicoes ainda nao esta clara
 
 - Ver se precisa da tabela usuarios
+
+- se tiver a palavra desenvolvimento login nao deve funcionar direito
 
 - colocar a inclusao do cabecalho em classe de servico basica depois
 
@@ -57,7 +40,11 @@ register services
 
 ok - checar se o token ta expirado
 
+- zerar bd
+
 - tabela log
+
+- Vulnerabilidade do login
 
 - retirar thread blocking do cabecalho, desempenho pode ser reduzido
 
@@ -71,16 +58,18 @@ ok - checar se o token ta expirado
 
 - Colocar mais try
 
-- servicos de mudanças de status empresa e carro
-
 - Frizar q nao vao conseguir dar update por chave primaria
  tem q bater o cnpj com o de prc cnpj do bd
+
+- servicos de mudanças de status empresa e carro
 
 - a pessoa consegue ter dois conduapp pra evitar incosistencia
 
 - pode ser que tenha update duas vezes pq nao codei direito
 
 - Derrubar sessao qndo receber unauthorize
+
+- pedir vistoria no appsettings
 
 (futuramente) - Revisar a tabela carro depois
 
@@ -548,6 +537,26 @@ ok - colcocar apis com o devops
 
 ok - passar o bd e perguntar do ambiente treinamento
 
+ok - fazer o servico q retorna td do motorista
+
+ok - publicar os servicos, depois alguma coisa do site
+
+ok - publicar os servicos, depois alguma coisa do site
+
+ok - busca por hash servico
+
+ok - colocar a branch master e pegar da remota d publicacao e deixar essa parada apenas
+para releases
+
+ok - fazer funcao de hash
+
+ok - colocar funcao de hash no create
+
+ok - busca por hash no site resulta na pagina
+
+ok - fazer funcao gerar QR code na pagina
+
+ok - ver sobre o qr code
 ===========================================================================================
 worklog
 
