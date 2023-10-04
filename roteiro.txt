@@ -2,6 +2,24 @@
 
 Tarefas
 
+- colocar os nomes nos campos antes de tirar os prints
+
+- status inativo vai ser direto da alimentacao do super servico
+
+- tirar a visualizacao do CRUD, exceto os gets
+
+- tela do credenciamento - filtros como cpf, conduapp, placa. Todos os motoristas, carros
+
+- Colocar consulta da pagina do hash mas usando cpf
+
+- url amigavel com route
+
+- observacao na alteracao da situacao - tipo uma textbox
+
+- (reuniao) tabela log
+
+- (reuniao) brasao com botao de home
+
 - fazer o site
 
 - fazer pagina mockada da setransp que tem essas funcionalidades
@@ -12,72 +30,66 @@ com os dados do motorista. Parece q as paginas vao ser iguais
 
 - timeout nao esta derrubando
 
-- Parte de punicoes ainda nao esta clara
-
-- Ver se precisa da tabela usuarios
-
-- se tiver a palavra desenvolvimento login nao deve funcionar direito
-
-- colocar a inclusao do cabecalho em classe de servico basica depois
-
-- o agente de transito é muito necssario
+- checar se o token ta expirado
 
 - pesquisar se pode usar httpclient estatico
-
-- espeficicar no swagger os limites de banda e colocar um tempo de 5 min entre cada
-request
 
 - padrao q da extend em classe, padrao de acrestar metodo numa classe, exemplo do
 register services
 
 - padrao visitor, tecnica pra extend o objeto
 
-- colocar as orientacoes nos appsettings recebiddas pelo slack do henrique
-
 - bater os tipos nulls das models com os not nulls com o bd, usando builder talvez
 
-- pesquisar se pode usar httpclient estatico
-
-ok - checar se o token ta expirado
+- Parte de punicoes ainda nao esta clara
 
 - zerar bd
 
 - tabela log
 
-- Vulnerabilidade do login
+- documentacao
 
-- retirar thread blocking do cabecalho, desempenho pode ser reduzido
+(futuramente) espeficicar no swagger os limites de banda e colocar um tempo de 5 min entre cada
+request
 
-- Revisar quais sao as tabelas necessarias para a primeira entrega
+(futuramente) colocar as orientacoes nos appsettings recebiddas pelo slack do henrique
 
-- Colocar os erros mais precisos como o 401
-
-- estudar novamente await, a funcao de logout foi tensa
-
-- Tratativa de erros mais consisa
-
-- Colocar mais try
-
-- Frizar q nao vao conseguir dar update por chave primaria
+(citacao) Frizar q nao vao conseguir dar update por chave primaria
  tem q bater o cnpj com o de prc cnpj do bd
 
-- servicos de mudanças de status empresa e carro
+(citacao) a pessoa consegue ter dois conduapp pra evitar incosistencia
 
-- a pessoa consegue ter dois conduapp pra evitar incosistencia
+(futuramente) servicos de mudanças de status empresa e carro
 
-- pode ser que tenha update duas vezes pq nao codei direito
+(futuramente) Ver se precisa da tabela usuarios
 
-- Derrubar sessao qndo receber unauthorize
+(futuramente) retirar thread blocking do cabecalho, desempenho pode ser reduzido
 
-- pedir vistoria no appsettings
+(futuramente) Revisar quais sao as tabelas necessarias para a primeira entrega
+
+(futuramente) Colocar os erros mais precisos como o 401
+
+(futuramente) estudar novamente await, a funcao de logout foi tensa
+
+(futuramente) Tratativa de erros mais consisa
+
+(futuramente) Colocar mais try
+
+(futuramente) pode ser que tenha update duas vezes pq nao codei direito
+
+(futuramente) Derrubar sessao qndo receber unauthorize
+
+(futuramente) pedir vistoria no appsettings
+
+(futuramente) o agente de transito é muito necssario
 
 (futuramente) - Revisar a tabela carro depois
 
-- Ver diferenca entre IEnumerable e IList, ver sobre nullable pois o bd tem mtos null
+(futuramente) Ver diferenca entre IEnumerable e IList, ver sobre nullable pois o bd tem mtos null
 
-- (depois) tem q bater o cnpj com o de prc cnpj do bd
+(futuramente) tem q bater o cnpj com o de prc cnpj do bd
 
-- (depois) historia de validacao do prc na requisicao
+(futuramnte) historia de validacao do prc na requisicao
 
 - art 39 e 47 - reler
 
@@ -286,6 +298,7 @@ q tinha codigo malicioso, keycloak com pouca informacao sem framwork, com devops
 - alem de ter um problema severo de proxy reverso do proprio keycloak q ainda nao se sabe 
 se vem da aplicacao ou do server, imagina-se config da aplicacao
 - agora tem hash extenso numa pagina q seria mais simples em tese
+- se tiver a palavra talvez desenvolvimento login nao deve funcionar direito
 
 ===========================================================================================
 Backlog
@@ -557,6 +570,8 @@ ok - busca por hash no site resulta na pagina
 ok - fazer funcao gerar QR code na pagina
 
 ok - ver sobre o qr code
+
+ok - colocar a inclusao do cabecalho em classe de servico basica depois
 ===========================================================================================
 worklog
 
