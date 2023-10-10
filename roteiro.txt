@@ -2,17 +2,62 @@
 
 Tarefas
 
-- colocar os nomes nos campos antes de tirar os prints
+- revisar o create update de credenciamento, pois precis checar o status é atualizado qndo
+da ativo inativo e nao muda o do motorista - 0.5
 
-- status inativo vai ser direto da alimentacao do super servico
+- terminar o design base primeiro - 16
 
-- tirar a visualizacao do CRUD, exceto os gets
+- revisar livrinho para o design - 2
 
-- tela do credenciamento - filtros como cpf, conduapp, placa. Todos os motoristas, carros
+- colocar campo clrv como ano de exercicio - 1
+
+- inves de idade data de nascimento - 2
+
+- coluna clrv adiciona em veiculo, no projeto como um todo e na API PRC - 6
+
+- design, encaixar os designs na tela com os servicos, fazer servicos adicionais - 16
+
+- pesquisa pode ser por conduapp ou cpf - 4
+
+- adicionar mais servicos inves de modificar os ja existentes
+
+- servico de voltar o veiculo, agora volta o veiculo e os condutores dele - 6
+
+- servico que volta os condutores, volta tambem todos os carros q ele dirige - 6
+
+- alterar super servico 
+
+ok - incluir crlv no bd
+
+- prc
+
+- create prc - 2
+
+ok - colocar no cabecalho, article e footer no site localhost
+
+- faze os designs especificados
+
+- menu - 2
+
+- manual
+
+- fazer sem paginacao por enquanto - 6
+
+- rever o shorthando do flex - 1
+
+- tela do credenciamento - filtros como cpf, conduapp, placa. Todos os motoristas, carros 12
+
+ok - colocar os nomes nos campos antes de tirar os prints
+
+- servicos da home - 4
+
+ok - tirar a visualizacao do CRUD, exceto os gets
 
 - Colocar consulta da pagina do hash mas usando cpf
 
 - url amigavel com route
+
+- servico adicional para mandar as fotos base em baseviaCpf
 
 - observacao na alteracao da situacao - tipo uma textbox
 
@@ -22,15 +67,17 @@ Tarefas
 
 - fazer o site
 
+- alguma coisa de retorno mais personalizado a cada requisicao, talvez algum retorno da familia 200 qndo da certo
+
 - fazer pagina mockada da setransp que tem essas funcionalidades
 
 - a pagina da setransp vai ter uma consulta condutor, que vai retornar um condutor
 e nessa mesma vai ser liberado a url com a hash q vai linkar para uma pagina publica
 com os dados do motorista. Parece q as paginas vao ser iguais
 
-- timeout nao esta derrubando
+ok - timeout nao esta derrubando
 
-- checar se o token ta expirado
+ok - checar se o token ta expirado
 
 - pesquisar se pode usar httpclient estatico
 
@@ -43,11 +90,17 @@ register services
 
 - Parte de punicoes ainda nao esta clara
 
+- reconsiderar funcao de paginacao pq parece q ela traz todos e nao pagina de verdade
+
 - zerar bd
 
 - tabela log
 
 - documentacao
+
+- status inativo vai ser direto da alimentacao do super servico
+
+(futuramente) precisa colocar os anos dinamicamente por js ate o ano corrente
 
 (futuramente) espeficicar no swagger os limites de banda e colocar um tempo de 5 min entre cada
 request
@@ -179,6 +232,8 @@ Bruno
  Duvidas
  
  Tata
+
+ - Importante - so foi possivel faze o q foi feito por causa da extensao dos horarios
 
  - 403 - perdi 1 dia util com o ban q tomei sem fazer nada errado, mas a segurança entendeu 
 q tinha codigo malicioso, keycloak com pouca informacao sem framwork, com devops, com
@@ -595,6 +650,9 @@ eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJENVdtRnlDclVNMXZSWGR3VzdfYzZO
             curl -X POST "https://localhost:44312/Credenciamento/SuperServico" -H  "accept: */*" -H  "Authorization: Bearer " -H  "Content-Type: application/json" -d @conteudo.txt
 
             curl -X GET "https://localhost:44350/PRC/ListarPRCs" -H  "accept: */*" -H  "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJENVdtRnlDclVNMXZSWGR3VzdfYzZOZlJ0OG5GdTVLdHI1OVk4ZmxFSVdJIn0.eyJleHAiOjE2OTU4MjQzNTksImlhdCI6MTY5NTgxODk1OSwianRpIjoiNGU1MTg5N2EtM2FiZS00NDkwLWE2ZjktODAxZDFhOGRmMDJjIiwiaXNzIjoiaHR0cDovL2Qtc3NvLnByYWlhZ3JhbmRlLnNwLmdvdi5icjo4MDgwL3JlYWxtcy9pbnRlcm5vIiwic3ViIjoiMjk0ZDAzMmQtOTIzOC00YjQ5LTllNGItYjVjZmVmMTdkMzllIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY29uZHUtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6ImYyNWJjZGE1LTY1ODUtNGU0ZC05YmI5LThiNzIzY2M5MDBmMyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTAiXSwicmVzb3VyY2VfYWNjZXNzIjp7ImNvbmR1LWFwcCI6eyJyb2xlcyI6WyJhZG1pbiIsImdlc3RvciJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6ImYyNWJjZGE1LTY1ODUtNGU0ZC05YmI5LThiNzIzY2M5MDBmMyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTWF0ZXVzIGRvcyBTYW50b3MiLCJJZENhZGFzdHJvVW5pY28iOiI1NCIsInByZWZlcnJlZF91c2VybmFtZSI6IjM2ODkxMjcyODkwIiwiZ2l2ZW5fbmFtZSI6Ik1hdGV1cyBkb3MgU2FudG9zIiwiZmFtaWx5X25hbWUiOiIiLCJlbWFpbCI6Im1hdGV1c3NAcHJhaWFncmFuZGUuc3AuZ292LmJyIn0.ArJPkyfi9ygTQa2Pk4HnftAb1SVJTOp496J1KI8ri8wux_U6LudJ5Ngd6Xwbwxqq62qJXLul25gNb4zpj84SXKkHnyhKbBB6LlgUe6fa0cMDU-_vAA01NttOnqfyZZpqKjum4RQt34GHxHsDIj3KUAeKa6sWyDIsEvbl2izf0WkY5793gVYz576csSDuRXnJlIilb9naufZiIgiNQ7CIB5gnc8Gvac6OljfcqfR3eZaTO4kmNdylvMGftgcyMlkWNYsYa3hBiHL2VXL_XrnL_zk_LnxYA6X78Qf2U3eil3Npt77syltfh602zPQaZupXi42pe-1iQxXMY6hMS1jCKA" -H  "Content-Type: application/json"
+
+            curl -X POST "https://t-api-conduappprc.praiagrande.sp.gov.br/Credenciamento/SuperServico" -H  "accept: */*" -H  "Authorization: Bearer <token>" -H  "Content-Type: application/json" -d @<conteudo.txt>
+
 
 {
   "cnpjEmpresa": "2",
